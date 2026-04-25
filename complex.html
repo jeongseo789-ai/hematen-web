@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>단지안내 | 남성역 헤머튼 HEMATEN</title>
+
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<link rel="stylesheet" href="./style.css">
+
+<style>
+/* ─────────────── BASE ─────────────── */
+* { font-family: 'Pretendard', sans-serif !important; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; padding: 0; background: #fff; color: #1a1a18; }
+
+/* ─────────────── PAGE HERO ─────────────── */
+.page-hero {
+  background: #1c1917; padding: 120px 0 80px;
+  position: relative; overflow: hidden; text-align: center;
+}
+.page-hero::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(204,167,84,.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+.page-hero-en {
+  font-weight: 700; font-size: 13px; color: #cca754;
+  letter-spacing: .2em; margin-bottom: 16px; text-transform: uppercase;
+}
+.page-hero-title {
+  font-size: clamp(40px, 6vw, 54px); color: #fff; font-weight: 800;
+  letter-spacing: -0.03em; line-height: 1.15; margin: 0 0 24px;
+}
+.page-breadcrumb {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  font-size: 14px; color: rgba(255,255,255,.4); font-weight: 400;
+}
+.page-breadcrumb a { color: rgba(255,255,255,.6); text-decoration: none; transition: color .2s; }
+.page-breadcrumb a:hover { color: #fff; }
+
+/* ─────────────── COMMON SECTION ─────────────── */
+.section { padding: 120px 0; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+.en-label { display: inline-block; font-size: 13px; font-weight: 700; color: #cca754; letter-spacing: .15em; margin-bottom: 12px; text-transform: uppercase; }
+.sec-title { font-size: 38px; font-weight: 800; color: #1a1a18; line-height: 1.25; letter-spacing: -0.03em; margin: 0 0 20px; }
+.sec-line { width: 40px; height: 3px; background: #cca754; margin-bottom: 24px; }
+.sec-desc { font-size: 16px; color: #4a4845; font-weight: 400; line-height: 1.8; letter-spacing: -0.01em; }
+
+/* ─────────────── 1. 단지 소개 (SPLIT) ─────────────── */
+.feature-split {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 64px; align-items: center; margin-top: 80px;
+}
+.feature-split.rev { direction: rtl; }
+.feature-split.rev > * { direction: ltr; }
+.feature-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; border-radius: 16px; box-shadow: 0 15px 30px rgba(0,0,0,0.06); }
+.feature-copy { background: #fff; padding: 40px; border-radius: 16px; border: 1px solid #E8E5DF; box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
+.feature-tag {
+  display: inline-block; padding: 6px 16px; background: rgba(204,167,84,0.1); border-radius: 20px;
+  font-size: 11px; font-weight: 700; color: #cca754; letter-spacing: .12em; margin-bottom: 16px; 
+}
+.feature-title { font-size: 28px; font-weight: 800; margin-bottom: 16px; line-height: 1.4; letter-spacing: -0.02em; color: #1a1a18; }
+.feature-desc { font-size: 16px; color: #4a4845; font-weight: 400; line-height: 1.8; }
+.feature-divider { width: 100%; height: 1px; background: #E8E5DF; margin: 20px 0 24px; }
+.feature-dot-list { display: flex; flex-direction: column; gap: 12px; margin-top: 16px; }
+.feature-dot { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; }
+.feature-dot-bullet { color: #cca754; font-weight: 800; flex-shrink: 0; margin-top: 2px; }
+.feature-dot-text { color: #4a4845; font-weight: 400; line-height: 1.7; }
+
+/* ─────────────── 2. 커뮤니티 (TABS & PANELS) ─────────────── */
+.comm-section { background: #F4F2EE; padding: 120px 0; }
+.comm-tabs {
+  display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; border-bottom: none;
+}
+.comm-tab {
+  padding: 12px 32px; border: 1px solid #E8E5DF; border-radius: 30px;
+  background: #fff; color: #8c8a85; font-size: 15px; font-weight: 600;
+  cursor: pointer; transition: all .3s ease; letter-spacing: 0;
+}
+.comm-tab.on, .comm-tab:hover { background: #1c1917; border-color: #1c1917; color: #cca754; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+
+.comm-panel { display: none; background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border: 1px solid #E8E5DF;}
+.comm-panel.on { display: block; animation: fadeIn 0.5s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* 이미지: 꽉 차는 풀이미지 */
+.comm-full-img-wrap {
+  width: 100%; background: #F9F8F6; border-bottom: 1px solid #E8E5DF;
+  display: flex; align-items: center; justify-content: center; padding: 60px 0;
+}
+.comm-full-img { width: 100%; max-width: 860px; height: auto; display: block; margin: 0 auto; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.05));}
+
+/* 텍스트 영역 */
+.comm-info {
+  padding: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start;
+}
+.comm-spec-title { font-size: 28px; font-weight: 800; color: #1a1a18; letter-spacing: -0.02em; margin-bottom: 10px; }
+.comm-spec-area { font-size: 15px; color: #cca754; margin-bottom: 24px; font-weight: 600; background: rgba(204,167,84,0.1); display: inline-block; padding: 6px 12px; border-radius: 6px;}
+.comm-desc { font-size: 16px; color: #4a4845; font-weight: 400; line-height: 1.8; }
+
+.comm-spec-table { width: 100%; border-collapse: collapse; }
+.comm-spec-table td { padding: 18px 0; font-size: 15px; border-bottom: 1px solid #E8E5DF; vertical-align: top; line-height: 1.65; }
+.comm-spec-table tr:last-child td { border-bottom: none; padding-bottom: 0; }
+.comm-spec-table td:first-child { color: #8c8a85; width: 80px; font-weight: 600; flex-shrink: 0; }
+.comm-spec-table td:last-child { color: #1a1a18; font-weight: 500; padding-left: 16px; }
+
+@media(max-width:900px){
+  .feature-split, .feature-split.rev { grid-template-columns: 1fr; direction: ltr; gap: 32px; margin-top: 48px;}
+  .comm-info { grid-template-columns: 1fr; gap: 32px; padding: 32px; }
+}
+
+/* ─── SCROLL REVEAL ─── */
+.rv { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.rv.visible { opacity: 1; transform: translateY(0); }
+.rv1 { transition-delay: .15s; }
+.rv2 { transition-delay: .3s; }
+</style>
+</head>
+<body>
+<script src="./shared.js"></script>
+<script>if (typeof injectNav === 'function') injectNav('complex');</script>
+
+<div class="page-hero">
+  <div class="container rv">
+    <div class="page-hero-en">Complex Guide</div>
+    <h1 class="page-hero-title">단지안내</h1>
+    <div class="page-breadcrumb">
+      <a href="index.html">홈</a><span>›</span><span style="color:rgba(255,255,255,.5);">단지안내</span>
+    </div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="rv">
+      <span class="en-label">Complex Introduction</span>
+      <h2 class="sec-title">감각에 자부심을 더한<br>프리미엄 단지 설계</h2>
+      <div class="sec-line"></div>
+      <p class="sec-desc">일조권과 통풍성을 극대화한 남향위주 배치로 쾌적한 단지 조성</p>
+    </div>
+
+    <div class="feature-split rv rv1">
+      <img src="./siteplan.jpg" alt="단지 배치도" class="feature-img">
+      <div class="feature-copy">
+        <div class="feature-tag">SITE PLAN</div>
+        <h3 class="feature-title">단지 배치도</h3>
+        <div class="feature-divider"></div>
+        <p class="feature-desc">
+          동작구 사당동 277-1번지 일원, 남성역(7호선) 인근 위치<br><br>
+          <strong>지하 4층~지상 39층, 6개동 공동주택 934세대</strong>로 구성되며
+          7호선 남성역과 4·7호선 이수역 방향으로 단지 출입구가 배치됩니다.
+        </p>
+        <div class="feature-dot-list">
+          <div class="feature-dot"><span class="feature-dot-bullet">·</span><span class="feature-dot-text">59A · 59B · 84A · 84B 타입 구성 (임대포함)</span></div>
+          <div class="feature-dot"><span class="feature-dot-bullet">·</span><span class="feature-dot-text">총 주차대수 1,252대 (세대당 약 1.34대)</span></div>
+          <div class="feature-dot"><span class="feature-dot-bullet">·</span><span class="feature-dot-text">7호선 남성역 도보 5분 · 4·7호선 이수역 더블역세권</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature-split rev rv rv2">
+      <img src="./premium.jpg" alt="단지 프리미엄" class="feature-img">
+      <div class="feature-copy">
+        <div class="feature-tag">PREMIUM</div>
+        <h3 class="feature-title">남성역 역세권, 서반포 프리미엄 입지<br>강남 바로 앞 반포 생활권 대단지</h3>
+        <div class="feature-divider"></div>
+        <p class="feature-desc">
+          일조권과 통풍성을 극대화한 <strong>남향위주 배치</strong>,<br>
+          태양광을 활용한 PV/BIPV시스템 적용으로 <strong>청정 에너지 단지 조성</strong>,<br>
+          단지 안팎을 이어주는 넓은 통경축 확보로 <strong>자연의 바람길 조성</strong>,<br>
+          차량과 도보를 분리한 <strong>맘스테이션 &amp; 드롭존</strong> 운영.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section comm-section" id="community">
+  <div class="container">
+    <div class="rv">
+      <span class="en-label">Community Facilities</span>
+      <h2 class="sec-title">프리미엄 커뮤니티 시설</h2>
+      <div class="sec-line"></div>
+      <p class="sec-desc">입주자 만족도 높은 다양한 커뮤니티 시설로 단지 생활의 질을 높입니다</p>
+    </div>
+
+    <div class="comm-tabs rv rv1" style="margin-top:40px;">
+      <button class="comm-tab on" onclick="switchComm(0,this)">피트니스센터</button>
+      <button class="comm-tab" onclick="switchComm(1,this)">경로당 · 도서관</button>
+      <button class="comm-tab" onclick="switchComm(2,this)">어린이집 · 돌봄</button>
+    </div>
+
+    <div class="comm-panel on rv rv2">
+      <div class="comm-full-img-wrap">
+        <img src="./comm_fitness.jpg" alt="피트니스센터 평면도" class="comm-full-img">
+      </div>
+      <div class="comm-info">
+        <div class="comm-title-block">
+          <div class="comm-spec-title">피트니스 센터</div>
+          <div class="comm-spec-area">약 200㎡ (60.50평)</div>
+          <p class="comm-desc">
+            입주자 만족도가 특히 높은 골프연습장 &amp; 피트니스 센터 구성.<br>
+            스크린골프부터 웨이트존, GX룸까지 프리미엄 시설 완비.
+          </p>
+        </div>
+        <table class="comm-spec-table">
+          <tr><td>주요시설</td><td>스크린골프 · 골프타석 · GX룸1·2 · 스트레칭룸 · 웨이트존 · 유산소존 · 라운지 · 썬큰</td></tr>
+          <tr><td>부대시설</td><td>인포데스크 · 락커룸 · 탈의실 &amp; 샤워실 (남녀)</td></tr>
+          <tr><td>위치</td><td>커뮤니티 내 피트니스센터 구역</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="comm-panel rv rv2">
+      <div class="comm-full-img-wrap">
+        <img src="./comm_senior.jpg" alt="경로당·도서관 평면도" class="comm-full-img">
+      </div>
+      <div class="comm-info">
+        <div class="comm-title-block">
+          <div class="comm-spec-title">경로당 &amp; 도서관</div>
+          <div class="comm-spec-area">총 515.62㎡ (경로당 350.83㎡ + 도서관 164.79㎡)</div>
+          <p class="comm-desc">
+            다양한 연령층의 입주자에 맞는 경로당 &amp; 도서관 구성.<br>
+            세대 간 소통과 여가를 위한 복합문화 공간.
+          </p>
+        </div>
+        <table class="comm-spec-table">
+          <tr><td>경로당</td><td>열람실(남·여) · 취미실 · 자치회의실 · 주방/식당 · 할머니방 · 할아버지방 · 거실</td></tr>
+          <tr><td>도서관</td><td>서고 · 열람실(남·여) · 취미실 · 자치회의실</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="comm-panel rv rv2">
+      <div class="comm-full-img-wrap">
+        <img src="./comm_kids.jpg" alt="어린이집·돌봄 평면도" class="comm-full-img">
+      </div>
+      <div class="comm-info">
+        <div class="comm-title-block">
+          <div class="comm-spec-title">어린이집 &amp; 돌봄공간</div>
+          <div class="comm-spec-area">총 470.12㎡ (어린이집 400.74㎡ + 돌봄 69.38㎡)</div>
+          <p class="comm-desc">
+            단지 내 어린이집으로 직장인 수요층 만족도 제고.<br>
+            안전하고 쾌적한 보육 환경으로 아이와 부모 모두 만족.
+          </p>
+        </div>
+        <table class="comm-spec-table">
+          <tr><td>주요시설</td><td>보육실 · 교사실 · 유희실 · 교보재창고 · 세탁실 · 주방/식당</td></tr>
+          <tr><td>돌봄</td><td>활동공간 · 주방/식당</td></tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+function switchComm(idx, el) {
+  // 모든 탭 버튼 비활성화
+  document.querySelectorAll('.comm-tab').forEach(t => t.classList.remove('on'));
+  // 모든 패널 숨기기
+  document.querySelectorAll('.comm-panel').forEach(p => p.classList.remove('on'));
+  
+  // 클릭한 탭 버튼 활성화
+  el.classList.add('on');
+  // 해당 인덱스의 패널 보여주기
+  document.querySelectorAll('.comm-panel')[idx].classList.add('on');
+}
+
+if (typeof injectFooter === 'function') injectFooter();
+
+// 스크롤 애니메이션 옵저버
+document.addEventListener("DOMContentLoaded", function() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.rv').forEach((el) => observer.observe(el));
+});
+</script>
+</body>
+</html>

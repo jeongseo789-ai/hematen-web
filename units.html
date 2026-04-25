@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>세대안내 | 남성역 헤머튼 HEMATEN</title>
+
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<link rel="stylesheet" href="./style.css">
+
+<style>
+/* ─────────────── BASE ─────────────── */
+* { font-family: 'Pretendard', sans-serif !important; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; padding: 0; background: #fff; color: #1a1a18; }
+
+/* ─────────────── PAGE HERO ─────────────── */
+.page-hero {
+  background: #1c1917; padding: 120px 0 80px;
+  position: relative; overflow: hidden; text-align: center;
+}
+.page-hero::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(204,167,84,.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+.page-hero-en {
+  font-weight: 700; font-size: 13px; color: #cca754;
+  letter-spacing: .2em; margin-bottom: 16px; text-transform: uppercase;
+}
+.page-hero-title {
+  font-size: clamp(40px, 6vw, 54px); color: #fff; font-weight: 800;
+  letter-spacing: -0.03em; line-height: 1.15; margin: 0 0 24px;
+}
+.page-breadcrumb {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  font-size: 14px; color: rgba(255,255,255,.4); font-weight: 400;
+}
+.page-breadcrumb a { color: rgba(255,255,255,.6); text-decoration: none; transition: color .2s; }
+.page-breadcrumb a:hover { color: #fff; }
+
+/* ─────────────── COMMON SECTION ─────────────── */
+.section { padding: 120px 0; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+.en-label { display: inline-block; font-size: 13px; font-weight: 700; color: #cca754; letter-spacing: .15em; margin-bottom: 12px; text-transform: uppercase; }
+.sec-title { font-size: 38px; font-weight: 800; color: #1a1a18; line-height: 1.2; letter-spacing: -0.03em; margin: 0 0 20px; }
+.sec-line { width: 40px; height: 3px; background: #cca754; margin-bottom: 24px; }
+.sec-desc { font-size: 16px; color: #4a4845; font-weight: 400; line-height: 1.8; letter-spacing: -0.01em; }
+
+/* ─────────────── FLOOR PLAN TABS ─────────────── */
+.fp-tabs { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 50px; }
+.fp-tab {
+  padding: 12px 32px; border: 1px solid #E8E5DF; border-radius: 30px;
+  background: #fff; color: #8c8a85; font-size: 15px; font-weight: 600;
+  cursor: pointer; transition: all .3s ease; letter-spacing: 0;
+}
+.fp-tab.on, .fp-tab:hover { background: #1c1917; border-color: #1c1917; color: #cca754; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+
+.fp-panel { display: none; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.fp-panel.on { display: grid; animation: fadeIn 0.5s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+.fp-box { 
+  background: #F9F8F6; padding: 48px; border-radius: 16px; 
+  display: flex; align-items: center; justify-content: center; aspect-ratio: 1;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.03);
+}
+.fp-title { font-size: 32px; font-weight: 800; color: #1a1a18; margin-bottom: 10px; letter-spacing: -0.02em; }
+.fp-cnt   { font-size: 16px; color: #8c8a85; font-weight: 400; margin-bottom: 32px; letter-spacing: -0.01em; }
+.fp-specs { display: flex; flex-direction: column; background: #fff; border: 1px solid #E8E5DF; border-radius: 12px; padding: 0 24px; }
+.fp-row   { display: flex; justify-content: space-between; padding: 18px 0; border-bottom: 1px solid #E8E5DF; }
+.fp-row:last-child { border-bottom: none; }
+.fp-key   { font-size: 15px; color: #8c8a85; font-weight: 500; }
+.fp-val   { font-size: 15px; color: #1a1a18; font-weight: 700; }
+.fp-note  { margin-top: 24px; padding: 20px 24px; background: rgba(204,167,84,.08); border-radius: 8px; font-size: 15px; color: #4a4845; line-height: 1.7; font-weight: 400; }
+
+.fp-svg { width: 100%; max-width: 320px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.05)); }
+
+/* ─────────────── PRICE SECTION ─────────────── */
+.price-section { background: #1c1917; color: #fff; }
+.price-tabs { display: flex; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 40px; }
+.price-tab {
+  padding: 16px 32px; font-size: 16px; color: rgba(255,255,255,0.4); font-weight: 600;
+  background: none; border: none; border-bottom: 3px solid transparent;
+  margin-bottom: -1px; cursor: pointer; transition: all .3s;
+}
+.price-tab.on { color: #cca754; border-bottom-color: #cca754; }
+.price-tab:hover:not(.on) { color: rgba(255,255,255,0.8); }
+
+.pt { display: none; animation: fadeIn 0.5s ease; }
+.pt.on { display: block; }
+.data-table { width: 100%; border-collapse: collapse; background: rgba(255,255,255,0.02); border-radius: 12px; overflow: hidden; }
+.data-table thead tr { background: rgba(204,167,84,0.1); }
+.data-table th {
+  padding: 18px 14px; font-size: 14px; font-weight: 700;
+  color: #cca754; border-bottom: 1px solid rgba(204,167,84,0.3); text-align: center;
+}
+.data-table td {
+  padding: 16px 14px; font-size: 15px; color: rgba(255,255,255,0.7);
+  text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05); font-weight: 400;
+}
+.data-table tbody tr:hover { background: rgba(255,255,255,0.05); }
+.data-table .hl { background: rgba(204,167,84,0.15); }
+.data-table .hl td { color: #fff; font-weight: 700; }
+.price-note { font-size: 14px; color: rgba(255,255,255,0.3); margin-top: 24px; line-height: 1.9; }
+
+/* ─────────────── FURNITURE GRID ─────────────── */
+.furn-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 50px; }
+.furn-item { 
+  background: #fff; border: 1px solid #E8E5DF; border-radius: 16px; 
+  padding: 40px 24px; text-align: center; transition: all 0.3s;
+}
+.furn-item:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.06); border-color: transparent; }
+.furn-icon { width: 48px; height: 48px; margin: 0 auto 20px; color: #cca754; }
+.furn-icon svg { width: 100%; height: 100%; stroke-width: 1.2; }
+.furn-name { font-size: 16px; color: #1a1a18; font-weight: 700; margin-bottom: 6px; }
+.furn-brand{ font-size: 14px; color: #8c8a85; font-weight: 500; }
+
+/* ─── SCROLL REVEAL ─── */
+.rv { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.rv.visible { opacity: 1; transform: translateY(0); }
+.rv1 { transition-delay: .1s; }
+.rv2 { transition-delay: .2s; }
+.rv3 { transition-delay: .3s; }
+.rv4 { transition-delay: .4s; }
+
+@media(max-width:900px){
+  .fp-panel.on { grid-template-columns: 1fr; gap: 40px; }
+  .furn-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .fp-box { padding: 24px; }
+}
+@media(max-width:600px){
+  .sec-title { font-size: 28px; }
+}
+</style>
+</head>
+<body>
+
+<script src="./shared.js"></script>
+<script>if (typeof injectNav === 'function') injectNav('units');</script>
+
+<div class="page-hero">
+  <div class="container rv">
+    <div class="page-hero-en">Unit Information</div>
+    <h1 class="page-hero-title">세대안내</h1>
+    <div class="page-breadcrumb">
+      <a href="index.html">홈</a><span>›</span><span style="color:rgba(255,255,255,.5);">세대안내</span>
+    </div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="rv">
+      <span class="en-label">Floor Plan</span>
+      <h2 class="sec-title">세대별 평면도</h2>
+      <div class="sec-line"></div>
+      <p class="sec-desc">전용 59㎡ ~ 84㎡ 타입 구성 · 3Bay 판상형 및 2면통풍 4Bay 구조</p>
+    </div>
+    
+    <div class="fp-tabs rv rv1">
+      <button class="fp-tab on" onclick="showFP('59a',this)">59A 타입</button>
+      <button class="fp-tab" onclick="showFP('59b',this)">59B 타입</button>
+      <button class="fp-tab" onclick="showFP('84a',this)">84A 타입</button>
+      <button class="fp-tab" onclick="showFP('84b',this)">84B 타입</button>
+    </div>
+
+    <div class="fp-panel on rv rv2" id="fp59a">
+      <div class="fp-box">
+        <svg class="fp-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+          <rect width="300" height="300" fill="transparent"/>
+          <rect x="18" y="18" width="264" height="264" fill="none" stroke="#1c1917" stroke-width="2.5"/>
+          <rect x="18" y="18" width="164" height="120" fill="#f4f2ee" stroke="#d6d3cd" stroke-width="1"/>
+          <text x="100" y="83" text-anchor="middle" font-size="12" font-weight="600" fill="#4a4845">거실 · 주방</text>
+          <rect x="182" y="18" width="100" height="95" fill="#e8e5df" stroke="#d6d3cd" stroke-width="1"/>
+          <text x="232" y="70" text-anchor="middle" font-size="12" font-weight="600" fill="#4a4845">안 방</text>
+          <rect x="18" y="138" width="164" height="28" fill="#f9f8f6" stroke="#d6d3cd" stroke-width="1" stroke-dasharray="4,2"/>
+          <text x="100" y="156" text-anchor="middle" font-size="10" font-weight="500" fill="#8c8a85">발코니</text>
+          <rect x="182" y="113" width="100" height="78" fill="#f4f2ee" stroke="#d6d3cd" stroke-width="1"/>
+          <text x="232" y="155" text-anchor="middle" font-size="12" font-weight="600" fill="#4a4845">방 2</text>
+          <rect x="18" y="166" width="80" height="60" fill="#e8e5df" stroke="#d6d3cd" stroke-width="1"/>
+          <text x="58" y="200" text-anchor="middle" font-size="11" font-weight="500" fill="#4a4845">욕실</text>
+          <rect x="98" y="166" width="84" height="60" fill="#f9f8f6" stroke="#d6d3cd" stroke-width="1"/>
+          <text x="140" y="200" text-anchor="middle" font-size="11" font-weight="500" fill="#4a4845">현관·복도</text>
+          <rect x="182" y="191" width="100" height="91" fill="#e8e5df" stroke="#d6d3cd" stroke-width="1"/>
+          <text x="232" y="240" text-anchor="middle" font-size="12" font-weight="600" fill="#4a4845">방 3</text>
+          <rect x="18" y="226" width="164" height="56" fill="#f4f2ee" stroke="#d6d3cd" stroke-width="1"/>
+          <text x="100" y="258" text-anchor="middle" font-size="11" font-weight="500" fill="#4a4845">다용도·창고</text>
+          <rect x="18" y="18" width="264" height="3" fill="#cca754"/>
+          <rect x="18" y="18" width="3" height="264" fill="#cca754"/>
+          <text x="150" y="11" text-anchor="middle" font-size="11" font-weight="800" fill="#cca754" letter-spacing="2">59A TYPE</text>
+        </svg>
+      </div>
+      <div>
+        <div class="fp-title">59A 타입</div>
+        <div class="fp-cnt">338세대 (임대포함) · 넓은 거실 3Bay 판상형</div>
+        <div class="fp-specs">
+          <div class="fp-row"><span class="fp-key">주거전용면적</span><span class="fp-val">59.98㎡ (18.14평)</span></div>
+          <div class="fp-row"><span class="fp-key">기타공용면적</span><span class="fp-val">2.54㎡</span></div>
+          <div class="fp-row"><span class="fp-key">주거공용면적</span><span class="fp-val">30.77㎡</span></div>
+          <div class="fp-row"><span class="fp-key">지하주차장면적</span><span class="fp-val">44.84㎡</span></div>
+          <div class="fp-row"><span class="fp-key">공급면적</span><span class="fp-val">90.75㎡ (27.45평)</span></div>
+          <div class="fp-row"><span class="fp-key">계약면적</span><span class="fp-val">138.13㎡ (41.79평)</span></div>
+        </div>
+        <div class="fp-note">넓은 거실과 3Bay 구조의 선호도 높은 판상형 평면 설계. 채광과 통풍이 우수하며 공간 활용도가 높습니다.</div>
+      </div>
+    </div>
+
+    <div class="fp-panel rv rv2" id="fp59b">
+      <div class="fp-box">
+        <svg class="fp-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+          <rect width="300" height="300" fill="transparent"/>
+          <rect x="18" y="18" width="264" height="264" fill="none" stroke="#1c1917" stroke-width="2.5"/>
+          <rect x="18" y="18" width="170" height="112" fill="#f4f2ee" stroke="#d6d3cd" stroke-width="1"/>
+          <text x="103" y="79" text-anchor="middle" font-size="12" font-weight="600" fill="#4a4845">거실 · 주방</text>
+          <rect x="188" y="18" width="94" height="90" fill="#e8e5df" stroke="#d6d3cd" stroke-width="1"/>
+          <text x="235" y="67" text-anchor="middle" font-size="12" font-weight="600" fill="#4a4845">안 방</text>
+          <rect x="18" y="130" width="170" height="28" fill="#f9f8f6" stroke="#d6d3cd" stroke-width="1" stroke-dasharray="4,2"/>
+          <text x="103" y="148" text-anchor="middle" font-size="10" font-weight="500" fill="#8c8a85">발코니 (4Bay)</text>
+          <rect x="188" y="108" width="94" height="82" fill="#f4f2ee" stroke="#d6d3cd" stroke-width="1"/>
+          <text x="235" y="152" text-anchor="middle" font-size="12" font-weight="600" fill="#4a4845">방 2</text>
+          <rect x="18" y="158" width="84" height="90" fill="#f4f2ee" stroke="#d6d3cd" stroke-width="1"/>
+          <text x="60" y="207" text-anchor="middle" font-size="12" font-weight="600" fill="#4a4845">방 3</text>
+          <rect x="102" y="158" width="86" height="90" fill="#e8e5df" stroke="#d6d3cd" stroke-width="1"/>
+          <text x="145" y="207" text-anchor="middle" font-size="11" font-weight="500" fill="#4a4845">욕실·현관</text>
+          <rect x="188" y="190" width="94" height="92" fill="#e8e5df" stroke="#d6d3cd" stroke-width="1"/>
+          <text x="235" y="239" text-anchor="middle" font-size="12" font-weight="600" fill="#4a4845">방 4</text>
+          <rect x="18" y="248" width="264" height="34" fill="#f9f8f6" stroke="#d6d3cd" stroke-width="1" stroke-dasharray="4,2"/>
+          <text x="150" y="268" text-anchor="middle" font-size="10" font-weight="500" fill="#8c8a85">발코니 (2면통풍)</text>
+          <rect x="18" y="18" width="264" height="3" fill="#cca754"/>
+          <rect x="18" y="18" width="3" height="264" fill="#cca754"/>
+          <text x="150" y="11" text-anchor="middle" font-size="11" font-weight="800" fill="#cca754" letter-spacing="2">59B TYPE</text>
+        </svg>
+      </div>
+      <div>
+        <div class="fp-title">59B 타입</div>
+        <div class="fp-cnt">140세대 (임대포함) · 2면통풍 4Bay</div>
+        <div class="fp-specs">
+          <div class="fp-row"><span class="fp-key">주거전용면적</span><span class="fp-val">59.93㎡ (18.13평)</span></div>
+          <div class="fp-row"><span class="fp-key">기타공용면적</span><span class="fp-val">2.54㎡</span></div>
+          <div class="fp-row"><span class="fp-key">주거공용면적</span><span class="fp-val">31.21㎡</span></div>
+          <div class="fp-row"><span class="fp-key">지하주차장면적</span><span class="fp-val">44.80㎡</span></div>
+          <div class="fp-row"><span class="fp-key">공급면적</span><span class="fp-val">91.14㎡ (27.57평)</span></div>
+          <div class="fp-row"><span class="fp-key">계약면적</span><span class="fp-val">138.48㎡ (41.89평)</span></div>
+        </div>
+        <div class="fp-note">2면통풍 &amp; 4Bay 구조로 쾌적함을 극대화한 평면설계. 넓은 발코니와 개방감 있는 구조가 특징입니다.</div>
+      </div>
+    </div>
+
+    <div class="fp-panel rv rv2" id="fp84a">
+      <div class="fp-box">
+        <svg class="fp-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+          <rect width="300" height="300" fill="transparent"/>
+          <rect x="18" y="18" width="264" height="264" fill="none" stroke="#1c1917" stroke-width="2.5"/>
+          <rect x="18" y="18" width="178" height="118" fill="#f4f2ee" stroke="#d6d3cd" stroke-width="1"/>
+          <text x="107" y="83" text-anchor="middle" font-size="12" font-weight="600" fill="#4a4845">거실 · 주방 · 식당</text>
+          <rect x="196" y="18" width="86" height="85" fill="#e8e5df" stroke="#d6d3cd" stroke-width="1"/>
+          <text x="239" y="63" text-anchor="middle" font-size="12" font-weight="600" fill="#4a4845">안 방</text>
+          <rect x="18" y="136" width="178" height="28" fill="#f9f8f6" stroke="#d6d3cd" stroke-width="1" stroke-dasharray="4,2"/>
+          <text x="107" y="154" text-anchor="middle" font-size="10" font-weight="500" fill="#8c8a85">발코니</text>
+          <rect x="196" y="103" width="86" height="80" fill="#f4f2ee" stroke="#d6d3cd" stroke-width="1"/>
+          <text x="239" y="146" text-anchor="middle" font-size="12" font-weight="600" fill="#4a4845">방 2</text>
+          <rect x="18" y="164" width="88" height="118" fill="#f4f2ee" stroke="#d6d3cd" stroke-width="1"/>
+          <text x="62" y="227" text-anchor="middle" font-size="12" font-weight="600" fill="#4a4845">방 3</text>
+          <rect x="106" y="164" width="90" height="118" fill="#e8e5df" stroke="#d6d3cd" stroke-width="1"/>
+          <text x="151" y="227" text-anchor="middle" font-size="11" font-weight="500" fill="#4a4845">방 4 · 현관</text>
+          <rect x="196" y="183" width="86" height="99" fill="#e8e5df" stroke="#d6d3cd" stroke-width="1"/>
+          <text x="239" y="236" text-anchor="middle" font-size="11" font-weight="500" fill="#4a4845">욕실 · 창고</text>
+          <rect x="18" y="18" width="264" height="3" fill="#cca754"/>
+          <rect x="18" y="18" width="3" height="264" fill="#cca754"/>
+          <text x="150" y="11" text-anchor="middle" font-size="11" font-weight="800" fill="#cca754" letter-spacing="2">84A TYPE</text>
+        </svg>
+      </div>
+      <div>
+        <div class="fp-title">84A 타입</div>
+        <div class="fp-cnt">386세대 (임대포함) · 4Bay 판상형</div>
+        <div class="fp-specs">
+          <div class="fp-row"><span class="fp-key">주거전용면적</span><span class="fp-val">84.92㎡ (25.69평)</span></div>
+          <div class="fp-row"><span class="fp-key">기타공용면적</span><span class="fp-val">3.59㎡</span></div>
+          <div class="fp-row"><span class="fp-key">주거공용면적</span><span class="fp-val">42.08㎡</span></div>
+          <div class="fp-row"><span class="fp-key">지하주차장면적</span><span class="fp-val">63.48㎡</span></div>
+          <div class="fp-row"><span class="fp-key">공급면적</span><span class="fp-val">127.00㎡ (38.42평)</span></div>
+          <div class="fp-row"><span class="fp-key">계약면적</span><span class="fp-val">194.07㎡ (58.71평)</span></div>
+        </div>
+        <div class="fp-note">넓은 거실과 4Bay 구조의 선호도 높은 판상형 평면설계. 주거전용 84㎡의 널찍한 공간 구성.</div>
+      </div>
+    </div>
+
+    <div class="fp-panel rv rv2" id="fp84b">
+      <div class="fp-box">
+        <svg class="fp-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+          <rect width="300" height="300" fill="transparent"/>
+          <rect x="18" y="18" width="264" height="264" fill="none" stroke="#1c1917" stroke-width="2.5"/>
+          <rect x="18" y="18" width="182" height="112" fill="#f4f2ee" stroke="#d6d3cd" stroke-width="1"/>
+          <text x="109" y="79" text-anchor="middle" font-size="12" font-weight="600" fill="#4a4845">거실 · 주방 · 식당</text>
+          <rect x="200" y="18" width="82" height="82" fill="#e8e5df" stroke="#d6d3cd" stroke-width="1"/>
+          <text x="241" y="62" text-anchor="middle" font-size="12" font-weight="600" fill="#4a4845">안 방</text>
+          <rect x="18" y="130" width="182" height="28" fill="#f9f8f6" stroke="#d6d3cd" stroke-width="1" stroke-dasharray="4,2"/>
+          <text x="109" y="148" text-anchor="middle" font-size="10" font-weight="500" fill="#8c8a85">발코니 (2면통풍)</text>
+          <rect x="200" y="100" width="82" height="82" fill="#f4f2ee" stroke="#d6d3cd" stroke-width="1"/>
+          <text x="241" y="144" text-anchor="middle" font-size="12" font-weight="600" fill="#4a4845">방 2</text>
+          <rect x="18" y="158" width="91" height="124" fill="#f4f2ee" stroke="#d6d3cd" stroke-width="1"/>
+          <text x="63" y="224" text-anchor="middle" font-size="12" font-weight="600" fill="#4a4845">방 3</text>
+          <rect x="109" y="158" width="91" height="124" fill="#e8e5df" stroke="#d6d3cd" stroke-width="1"/>
+          <text x="154" y="224" text-anchor="middle" font-size="11" font-weight="500" fill="#4a4845">욕실·현관</text>
+          <rect x="200" y="182" width="82" height="100" fill="#e8e5df" stroke="#d6d3cd" stroke-width="1"/>
+          <text x="241" y="235" text-anchor="middle" font-size="12" font-weight="600" fill="#4a4845">방 4</text>
+          <rect x="18" y="18" width="264" height="3" fill="#cca754"/>
+          <rect x="18" y="18" width="3" height="264" fill="#cca754"/>
+          <text x="150" y="11" text-anchor="middle" font-size="11" font-weight="800" fill="#cca754" letter-spacing="2">84B TYPE</text>
+        </svg>
+      </div>
+      <div>
+        <div class="fp-title">84B 타입</div>
+        <div class="fp-cnt">70세대 · 4Bay 2면통풍</div>
+        <div class="fp-specs">
+          <div class="fp-row"><span class="fp-key">주거전용면적</span><span class="fp-val">84.95㎡ (25.70평)</span></div>
+          <div class="fp-row"><span class="fp-key">기타공용면적</span><span class="fp-val">3.59㎡</span></div>
+          <div class="fp-row"><span class="fp-key">주거공용면적</span><span class="fp-val">12.62㎡</span></div>
+          <div class="fp-row"><span class="fp-key">지하주차장면적</span><span class="fp-val">63.51㎡</span></div>
+          <div class="fp-row"><span class="fp-key">공급면적</span><span class="fp-val">126.68㎡ (38.32평)</span></div>
+          <div class="fp-row"><span class="fp-key">계약면적</span><span class="fp-val">193.78㎡ (58.62평)</span></div>
+        </div>
+        <div class="fp-note">2면통풍 &amp; 4Bay 구조로 쾌적함의 극대화. 삼성전자 풀퍼니처 기본 제공.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section price-section" id="price">
+  <div class="container">
+    <div class="rv">
+      <span class="en-label">Membership Price</span>
+      <h2 class="sec-title" style="color:#fff;">조합원 모집가</h2>
+      <div class="sec-line"></div>
+      <p class="sec-desc" style="color:rgba(255,255,255,.5);">업무대행비(VAT 포함) 포함된 금액 · 단위: 천원 · 기준층(라군, 10~14층) 기준<br>중도금 2~8차 무이자(60%) 제공 · 지구단위승인 후 1개월부터</p>
+    </div>
+    
+    <div class="price-tabs rv rv1">
+      <button class="price-tab on" onclick="showP('59',this)">59㎡ 타입 (A·B)</button>
+      <button class="price-tab" onclick="showP('84',this)">84㎡ 타입 (A·B)</button>
+    </div>
+    
+    <div class="pt on rv rv2" id="pt59">
+      <div style="overflow-x:auto;">
+        <table class="data-table" style="min-width:700px;">
+          <thead><tr><th>군</th><th>층수</th><th>총 모집가</th><th>계약금1차</th><th>계약금2차</th><th>계약금3차</th><th>중도금1차~7차</th><th>잔금</th></tr></thead>
+          <tbody>
+            <tr><td>차</td><td>37~39층</td><td>726,000</td><td>30,000</td><td>40,000</td><td>37,250</td><td>68,750×7</td><td>68,750</td></tr>
+            <tr><td>자</td><td>33~36층</td><td>712,500</td><td>30,000</td><td>40,000</td><td>35,900</td><td>67,400×7</td><td>67,400</td></tr>
+            <tr><td>아</td><td>29~32층</td><td>705,700</td><td>30,000</td><td>40,000</td><td>35,220</td><td>66,720×7</td><td>66,720</td></tr>
+            <tr><td>사</td><td>25~28층</td><td>698,900</td><td>30,000</td><td>40,000</td><td>34,540</td><td>66,040×7</td><td>66,040</td></tr>
+            <tr><td>바</td><td>21~24층</td><td>692,100</td><td>30,000</td><td>40,000</td><td>33,860</td><td>65,360×7</td><td>65,360</td></tr>
+            <tr><td>마</td><td>16~20층</td><td>685,300</td><td>30,000</td><td>40,000</td><td>33,180</td><td>64,680×7</td><td>64,680</td></tr>
+            <tr class="hl"><td>라 (기준층)</td><td>10~14층</td><td>678,500</td><td>30,000</td><td>40,000</td><td>32,500</td><td>64,000×7</td><td>64,000</td></tr>
+            <tr><td>다</td><td>6~9층</td><td>631,100</td><td>30,000</td><td>40,000</td><td>27,760</td><td>59,260×7</td><td>59,260</td></tr>
+            <tr><td>나</td><td>3~5층</td><td>624,300</td><td>30,000</td><td>40,000</td><td>27,080</td><td>58,580×7</td><td>58,580</td></tr>
+            <tr><td>가</td><td>2층</td><td>610,700</td><td>30,000</td><td>40,000</td><td>25,720</td><td>57,220×7</td><td>57,220</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+    <div class="pt rv rv2" id="pt84">
+      <div style="overflow-x:auto;">
+        <table class="data-table" style="min-width:700px;">
+          <thead><tr><th>군</th><th>층수</th><th>총 모집가</th><th>계약금1차</th><th>계약금2차</th><th>계약금3차</th><th>중도금1차~7차</th><th>잔금</th></tr></thead>
+          <tbody>
+            <tr><td>차</td><td>37~39층</td><td>875,800</td><td>40,000</td><td>40,000</td><td>42,230</td><td>83,730×7</td><td>83,730</td></tr>
+            <tr><td>자</td><td>33~36층</td><td>859,500</td><td>40,000</td><td>40,000</td><td>40,600</td><td>82,100×7</td><td>82,100</td></tr>
+            <tr><td>아</td><td>29~32층</td><td>851,300</td><td>40,000</td><td>40,000</td><td>39,780</td><td>81,280×7</td><td>81,280</td></tr>
+            <tr><td>사</td><td>25~28층</td><td>843,100</td><td>40,000</td><td>40,000</td><td>38,960</td><td>80,460×7</td><td>80,460</td></tr>
+            <tr><td>바</td><td>21~24층</td><td>834,900</td><td>40,000</td><td>40,000</td><td>38,140</td><td>79,640×7</td><td>79,640</td></tr>
+            <tr><td>마</td><td>16~20층</td><td>826,700</td><td>40,000</td><td>40,000</td><td>37,320</td><td>78,820×7</td><td>78,820</td></tr>
+            <tr class="hl"><td>라 (기준층)</td><td>10~14층</td><td>818,500</td><td>40,000</td><td>40,000</td><td>36,500</td><td>78,000×7</td><td>78,000</td></tr>
+            <tr><td>다</td><td>6~9층</td><td>761,300</td><td>40,000</td><td>40,000</td><td>30,780</td><td>72,280×7</td><td>72,280</td></tr>
+            <tr><td>나</td><td>3~5층</td><td>753,100</td><td>40,000</td><td>40,000</td><td>29,960</td><td>71,460×7</td><td>71,460</td></tr>
+            <tr><td>가</td><td>2층</td><td>736,700</td><td>40,000</td><td>40,000</td><td>28,320</td><td>69,820×7</td><td>69,820</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p class="price-note rv rv3">
+      ※ 상기 금액은 인허가 진행에 따라 변경될 수 있으며 정확한 사항은 전화 상담을 통해 확인하시기 바랍니다.<br>
+      ※ 본 광고는 제11조의5(조합원 모집광고 등에 관한 준수사항)에 의거한 지역주택조합의 조합원 모집을 위한 광고입니다.
+    </p>
+  </div>
+</section>
+
+<section class="section" id="furniture" style="background:#F4F2EE;">
+  <div class="container">
+    <div class="rv">
+      <span class="en-label">Full Furniture</span>
+      <h2 class="sec-title">풀퍼니처 기본 제공</h2>
+      <div class="sec-line"></div>
+      <p class="sec-desc">수요 선호도 높은 가전 기본 제공으로 나만의 주거 공간 완성!<br>풀옵션 고급 가전제품 기본 제공!</p>
+    </div>
+    <div class="furn-grid">
+      <div class="furn-item rv"><div class="furn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M12 17v4M8 21h8"/><path d="M7 8h10M7 11h4"/></svg></div><div class="furn-name">시스템에어컨</div><div class="furn-brand">삼성전자 4대</div></div>
+      <div class="furn-item rv"><div class="furn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/></svg></div><div class="furn-name">세탁기+건조기</div><div class="furn-brand">삼성전자</div></div>
+      <div class="furn-item rv rv1"><div class="furn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="5" y1="9" x2="19" y2="9"/><circle cx="9" cy="5.5" r="1" fill="currentColor" stroke="none"/></svg></div><div class="furn-name">1도어냉장</div><div class="furn-brand">삼성전자</div></div>
+      <div class="furn-item rv rv1"><div class="furn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="5" y1="9" x2="19" y2="9"/><path d="M9 14h2M9 17h2"/></svg></div><div class="furn-name">1도어김치</div><div class="furn-brand">삼성전자</div></div>
+      <div class="furn-item rv rv2"><div class="furn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="15" rx="2"/><line x1="2" y1="11" x2="22" y2="11"/><circle cx="8" cy="8.5" r="1" fill="currentColor" stroke="none"/><circle cx="12" cy="8.5" r="1" fill="currentColor" stroke="none"/></svg></div><div class="furn-name">전기오븐</div><div class="furn-brand">삼성전자</div></div>
+      <div class="furn-item rv rv2"><div class="furn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/><circle cx="7.5" cy="7.5" r="1" fill="currentColor" stroke="none"/><path d="M8 15l2-2 2 2 2-2 2 2"/></svg></div><div class="furn-name">식기세척기</div><div class="furn-brand">삼성전자</div></div>
+      <div class="furn-item rv rv3"><div class="furn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"/><circle cx="8" cy="12" r="2.5"/><circle cx="15" cy="12" r="2.5"/><line x1="3" y1="6" x2="21" y2="6"/></svg></div><div class="furn-name">인덕션3구</div><div class="furn-brand">삼성전자</div></div>
+      <div class="furn-item rv rv3"><div class="furn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v4H4zM6 8v12M18 8v12M6 20h12"/><line x1="9" y1="12" x2="15" y2="12"/></svg></div><div class="furn-name">렌지후드</div><div class="furn-brand">삼성전자</div></div>
+    </div>
+  </div>
+</section>
+
+<script>
+// 평면도 탭 스크립트
+function showFP(id, el) {
+  document.querySelectorAll('.fp-tab').forEach(t => t.classList.remove('on'));
+  document.querySelectorAll('.fp-panel').forEach(p => p.classList.remove('on'));
+  el.classList.add('on');
+  document.getElementById('fp'+id).classList.add('on');
+}
+// 모집가 탭 스크립트
+function showP(t, el) {
+  document.querySelectorAll('.price-tab').forEach(e => e.classList.remove('on'));
+  document.querySelectorAll('.pt').forEach(e => e.classList.remove('on'));
+  el.classList.add('on');
+  document.getElementById('pt'+t).classList.add('on');
+}
+
+if (typeof injectFooter === 'function') injectFooter();
+
+// 스크롤 애니메이션 옵저버 (메인 페이지와 동일)
+document.addEventListener("DOMContentLoaded", function() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.rv').forEach((el) => observer.observe(el));
+});
+</script>
+</body>
+</html>

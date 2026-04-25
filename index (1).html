@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>남성역 헤머튼 | HEMATEN 지역주택조합</title>
+<meta name="description" content="남성역 헤머튼 지역주택조합 조합원 모집. 서울 동작구 사당동, 지하4층~지상39층 6개동 934세대. 7호선 남성역 초역세권. ☎ 02-588-5840">
+
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<link rel="stylesheet" href="./style.css">
+
+<style>
+/* ─────────────── BASE ─────────────── */
+* { font-family: 'Pretendard', sans-serif !important; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; padding: 0; background: #fff; color: #1a1a18; }
+
+/* ─────────────── 1. HERO (왼쪽 정렬 버전) ─────────────── */
+.hero {
+  position: relative; height: 100vh; min-height: 600px;
+  display: flex; align-items: flex-end; padding-bottom: 10vh;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background-image: url('./hero.jpg');
+  background-size: cover; background-position: center 25%;
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(10, 8, 6, 0.9) 0%, rgba(10, 8, 6, 0.4) 50%, transparent 100%);
+}
+.hero-body {
+  position: relative; z-index: 2;
+  padding: 0 80px; width: 100%; max-width: 1200px; margin: 0 auto;
+}
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 10px;
+  border: 1px solid rgba(158,125,46,.5); padding: 7px 16px; margin-bottom: 24px;
+  font-weight: 600; font-size: 13px; color: rgba(191,160,88,.9); letter-spacing: .2em;
+  background: rgba(0,0,0,0.4); border-radius: 30px; backdrop-filter: blur(4px);
+}
+.hero-tag-dot { width: 6px; height: 6px; border-radius: 50%; background: #cca754; flex-shrink: 0; }
+.hero-sub-en {
+  font-weight: 800; font-size: clamp(52px, 8vw, 108px); color: rgba(255,255,255,.06);
+  letter-spacing: .14em; line-height: 1; margin-bottom: -18px;
+}
+.hero-title {
+  font-size: clamp(40px, 5.5vw, 68px); color: #fff;
+  font-weight: 700; line-height: 1.25; letter-spacing: -.03em; margin-bottom: 20px;
+  text-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+}
+.hero-title em { color: #cca754; font-style: normal; display: block; font-weight: 800; }
+.hero-desc {
+  font-size: 17px; color: rgba(255,255,255,.8); font-weight: 400;
+  line-height: 1.85; margin-bottom: 40px; text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+}
+.hero-stats { display: flex; gap: 40px; margin-bottom: 40px; }
+.hstat { border-left: 2px solid #cca754; padding-left: 18px; }
+.hstat-v { font-size: 32px; color: #fff; font-weight: 800; line-height: 1; text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5); }
+.hstat-l { font-size: 13px; font-weight: 500; color: rgba(255,255,255,.5); margin-top: 8px; letter-spacing: .08em; }
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+
+.hero-scroll {
+  position: absolute; bottom: 32px; right: 80px;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  font-weight: 600; font-size: 12px; color: rgba(255,255,255,.4); letter-spacing: .18em;
+}
+.scroll-bar { width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(204,167,84,.8), transparent); animation: sba 2s infinite; }
+@keyframes sba { 0%,100%{opacity:1;transform:scaleY(1)} 50%{opacity:.3;transform:scaleY(.6)} }
+
+/* ─────────────── 2. BIRDVIEW FULL ─────────────── */
+.birdview { overflow: hidden; line-height: 0; }
+.birdview img { width: 100%; aspect-ratio: 16/6; object-fit: cover; object-position: center; }
+
+/* ─────────────── 3. NAV CARDS (이모지 버전 + 회색 배경 분할) ─────────────── */
+.menu-section { background: #F4F2EE; padding: 120px 0; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+.menu-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: #E8E5DF; border: 1px solid #E8E5DF; }
+.menu-card {
+  background: #fff; padding: 48px 24px;
+  display: flex; flex-direction: column; gap: 16px;
+  transition: all .28s; position: relative; overflow: hidden; text-decoration: none;
+}
+.menu-card::after {
+  content: ''; position: absolute; bottom: 0; left: 0;
+  width: 100%; height: 3px; background: #cca754;
+  transform: scaleX(0); transform-origin: left; transition: transform .32s;
+}
+.menu-card:hover { background: #0d0d0b; transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,.15); z-index: 10; }
+.menu-card:hover .mc-title, .menu-card:hover .mc-desc { color: rgba(255,255,255,.7); }
+.menu-card:hover::after { transform: scaleX(1); }
+.mc-icon { font-size: 32px; margin-bottom: 8px; transition: transform 0.3s; }
+.menu-card:hover .mc-icon { transform: scale(1.1); }
+.mc-title { font-size: 18px; font-weight: 700; color: #1a1a18; transition: color .28s; letter-spacing: -0.02em; }
+.mc-desc { font-size: 14px; color: #8c8a85; font-weight: 400; line-height: 1.65; transition: color .28s; letter-spacing: -0.01em; }
+.mc-arrow { font-size: 18px; font-weight: 600; color: #cca754; margin-top: auto; transition: color .28s; padding-top: 16px; }
+
+/* ─────────────── 4. HIGHLIGHTS (흰색 배경) ─────────────── */
+.hl-section { padding: 120px 0; background: #fff; }
+.en-label { display: inline-block; font-size: 13px; font-weight: 700; color: #cca754; letter-spacing: .15em; margin-bottom: 12px; text-transform: uppercase; }
+.sec-title { font-size: 38px; font-weight: 800; color: #1a1a18; line-height: 1.2; letter-spacing: -0.03em; margin: 0 0 20px; }
+.sec-line { width: 40px; height: 3px; background: #cca754; margin-bottom: 24px; }
+
+.hl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: #E8E5DF; border: 1px solid #E8E5DF; margin-top: 50px; }
+.hl-card { background: #fff; padding: 56px 48px; transition: background .25s; }
+.hl-card:hover { background: #F9F8F6; }
+.hl-num { font-size: 54px; color: rgba(158,125,46,.15); font-weight: 800; line-height: 1; margin-bottom: 12px; }
+.hl-title { font-size: 24px; font-weight: 700; color: #1a1a18; margin-bottom: 14px; letter-spacing: -0.02em; }
+.hl-text { font-size: 16px; color: #4a4845; font-weight: 400; line-height: 1.8; letter-spacing: -0.01em; }
+.hl-link { display: inline-flex; align-items: center; gap: 6px; font-size: 15px; color: #cca754; margin-top: 20px; font-weight: 600; letter-spacing: .02em; text-decoration: none; }
+.hl-link:hover { color: #b59245; }
+
+/* ─────────────── 5. PANORAMA BAND (입체 패럴랙스) ─────────────── */
+.pano-band { 
+  position: relative; width: 100%; height: 500px;
+  background-image: url('./panorama.jpg');
+  background-size: cover; background-position: center; background-attachment: fixed;
+}
+.pano-band img { display: none; }
+.pano-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to right,rgba(28,25,23,0.85) 0%, rgba(28,25,23,0.4) 50%, transparent 100%);
+  display: flex; align-items: center; padding: 0 80px;
+}
+.pano-copy .en-label { color: rgba(204,167,84,0.9); }
+.pano-copy h2 { font-size: clamp(32px, 4vw, 50px); color: #fff; font-weight: 800; line-height: 1.3; margin: 14px 0 24px; letter-spacing: -0.03em; }
+.pano-copy p { font-size: 16px; color: rgba(255,255,255,.6); font-weight: 400; line-height: 1.8; max-width: 400px; }
+
+/* ─────────────── 6. QUICK CONTACT ─────────────── */
+.qc-section { background: #1c1917; padding: 80px 0; border-top: 1px solid rgba(255,255,255,0.05); }
+.qc-inner { display: flex; align-items: center; justify-content: space-between; gap: 48px; flex-wrap: wrap; }
+.qc-left h2 { font-size: 32px; color: #fff; font-weight: 800; margin-bottom: 10px; margin-top: 0; letter-spacing: -0.02em; }
+.qc-left p { font-size: 16px; color: rgba(255,255,255,.5); font-weight: 400; margin-bottom: 0; }
+.qc-phone { font-size: clamp(32px, 4vw, 50px); color: #cca754; font-weight: 800; letter-spacing: .04em; }
+.qc-right { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+
+/* ─── SCROLL REVEAL ─── */
+.rv { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.rv.visible { opacity: 1; transform: translateY(0); }
+.rv1 { transition-delay: .15s; }
+.rv2 { transition-delay: .3s; }
+.rv3 { transition-delay: .45s; }
+.rv4 { transition-delay: .6s; }
+
+/* ─── BUTTONS ─── */
+.btn-gold { background-color: #cca754; color: #fff; padding: 16px 36px; text-decoration: none; border-radius: 4px; font-weight: 700; border: 1px solid #cca754; transition: all 0.3s; font-size: 16px; }
+.btn-gold:hover { background-color: #b59245; border-color: #b59245; }
+.btn-outline-gold { color: #fff; border: 1px solid rgba(255,255,255,.5); padding: 16px 36px; text-decoration: none; border-radius: 4px; font-weight: 700; transition: all 0.3s; font-size: 16px; }
+.btn-outline-gold:hover { background-color: rgba(255,255,255,0.1); border-color: #fff;}
+.btn-outline-dark { color: rgba(255,255,255,0.8); border: 1px solid rgba(255,255,255,.3); padding: 16px 36px; text-decoration: none; border-radius: 4px; font-weight: 700; transition: all 0.3s; font-size: 16px; }
+.btn-outline-dark:hover { background-color: rgba(255,255,255,0.1); border-color: #fff; color: #fff;}
+
+@media(max-width:900px) {
+  .menu-grid { grid-template-columns: repeat(3, 1fr); }
+  .hl-grid { grid-template-columns: 1fr; }
+  .hero-body { padding: 0 40px; }
+  .hero-stats { gap: 24px; flex-wrap: wrap; }
+  .pano-overlay { padding: 0 40px; }
+  .qc-inner { flex-direction: column; text-align: center; }
+}
+@media(max-width:640px) {
+  .menu-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-sub-en { display: none; }
+  .hero-body { padding: 0 20px; }
+}
+</style>
+</head>
+<body>
+
+<script src="./shared.js"></script>
+<script>if (typeof injectNav === 'function') injectNav('index');</script>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-body">
+    <div class="hero-tag rv"><div class="hero-tag-dot"></div>조합원 모집 진행 중 · 동작구 사당동 277-1번지 일원</div>
+    <div class="hero-sub-en rv rv1">HEMATEN</div>
+    <h1 class="hero-title rv rv2">
+      서울 프리미엄의 중심,<br>
+      <em>남성역 헤머튼</em>
+    </h1>
+    <p class="hero-desc rv rv3">
+      강남·반포 생활을 일상으로, 이제 남성역에서 만나보세요<br>
+      지하4층~지상39층 · 6개동 · 총 934세대 · 7호선 남성역 초역세권
+    </p>
+    <div class="hero-stats rv rv4">
+      <div class="hstat"><div class="hstat-v">934</div><div class="hstat-l">총 세대수</div></div>
+      <div class="hstat"><div class="hstat-v">39F</div><div class="hstat-l">최고층수</div></div>
+      <div class="hstat"><div class="hstat-v">6개동</div><div class="hstat-l">공동주택</div></div>
+      <div class="hstat"><div class="hstat-v">59·84㎡</div><div class="hstat-l">전용면적</div></div>
+    </div>
+    <div class="hero-btns rv rv4">
+      <a href="contact.html" class="btn-gold">조합원 상담 신청</a>
+      <a href="overview.html" class="btn-outline-gold">사업개요 보기</a>
+    </div>
+  </div>
+  <div class="hero-scroll rv rv4"><div class="scroll-bar"></div><span>SCROLL</span></div>
+</section>
+
+<div class="birdview rv">
+  <img src="./overview_img.jpg" alt="남성역 헤머튼 조감도">
+</div>
+
+<section class="menu-section">
+  <div class="container">
+    <div class="menu-grid">
+      <a href="overview.html" class="menu-card rv">
+        <div class="mc-icon">📋</div>
+        <div class="mc-title">사업안내</div>
+        <div class="mc-desc">사업개요 · 인허가일정<br>사업주체 안내</div>
+        <div class="mc-arrow">→</div>
+      </a>
+      <a href="location.html" class="menu-card rv rv1">
+        <div class="mc-icon">📍</div>
+        <div class="mc-title">입지환경</div>
+        <div class="mc-desc">사당역·남성역 교통망<br>교육 및 생활 편의시설</div>
+        <div class="mc-arrow">→</div>
+      </a>
+      <a href="complex.html" class="menu-card rv rv2">
+        <div class="mc-icon">🏗️</div>
+        <div class="mc-title">단지안내</div>
+        <div class="mc-desc">단지배치도 및 동호수<br>프리미엄 커뮤니티</div>
+        <div class="mc-arrow">→</div>
+      </a>
+      <a href="units.html" class="menu-card rv rv3">
+        <div class="mc-icon">🏠</div>
+        <div class="mc-title">세대안내</div>
+        <div class="mc-desc">평면도 · 모집가<br>풀퍼니처 정보</div>
+        <div class="mc-arrow">→</div>
+      </a>
+      <a href="contact.html" class="menu-card rv rv4">
+        <div class="mc-icon">📞</div>
+        <div class="mc-title">고객센터</div>
+        <div class="mc-desc">홍보관 오시는 길<br>온라인 상담 신청</div>
+        <div class="mc-arrow">→</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="hl-section">
+  <div class="container">
+    <div class="rv">
+      <span class="en-label">Why HEMATEN</span>
+      <h2 class="sec-title">남성역 헤머튼을<br>선택해야 하는 이유</h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="hl-grid">
+      <div class="hl-card rv">
+        <div class="hl-num">01</div>
+        <div class="hl-title">7호선 남성역 초역세권</div>
+        <div class="hl-text">도보 5분 이내 지하철 이용 가능. 강남구청까지 12분, 서울역까지 20분. 서리풀터널 이용 시 강남까지 차량 30분 접근 가능.</div>
+        <a href="location.html" class="hl-link">입지환경 보기 →</a>
+      </div>
+      <div class="hl-card rv rv1">
+        <div class="hl-num">02</div>
+        <div class="hl-title">지역주택조합 4차 하이팰리스</div>
+        <div class="hl-text">동작 1차·상도 2차·이수 3차의 성공에 이어 동명디앤씨·㈜상우코퍼레이션·코리아그룹이 선보이는 4차 프리미엄 단지.</div>
+        <a href="overview.html" class="hl-link">사업개요 보기 →</a>
+      </div>
+      <div class="hl-card rv rv2">
+        <div class="hl-num">03</div>
+        <div class="hl-title">최초 모집가 대비 막대한 프리미엄</div>
+        <div class="hl-text">인근 유사 성공사례 분석 결과 인허가 진행에 따른 지속적 모집가 상승 확인. 전용 84㎡ 기준 15~42% 상승 사례.</div>
+        <a href="units.html#price" class="hl-link">모집가 보기 →</a>
+      </div>
+      <div class="hl-card rv rv3">
+        <div class="hl-num">04</div>
+        <div class="hl-title">GTX-D · 사당역 복합환승센터</div>
+        <div class="hl-text">GTX-D 예타 통과, 사당역 복합환승센터 건립 예정. 광역 교통 인프라 개선으로 엄청난 미래 가치 상승 기대.</div>
+        <a href="location.html#dev" class="hl-link">개발호재 보기 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="pano-band rv">
+  <div class="pano-overlay">
+    <div class="pano-copy rv rv1">
+      <span class="en-label">Premium Location</span>
+      <h2>강남 바로 앞<br>반포 생활권 대단지</h2>
+      <p>사당·이수·방배를 넘어 강남까지 이어지는<br>중심 생활권에서 누리는 프리미엄 주거</p>
+    </div>
+  </div>
+</div>
+
+<section class="qc-section">
+  <div class="container">
+    <div class="qc-inner rv">
+      <div class="qc-left">
+        <h2>상담 및 문의</h2>
+        <p>전문 상담사가 친절하게 안내해 드립니다 · 평일 09:00~18:00 / 주말 10:00~17:00</p>
+      </div>
+      <div class="qc-phone">02)588-5840</div>
+      <div class="qc-right">
+        <a href="tel:0255885840" class="btn-gold">전화 상담</a>
+        <a href="contact.html" class="btn-outline-dark">온라인 신청</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  if (typeof injectFooter === 'function') injectFooter();
+
+  // 스크롤 애니메이션 옵저버
+  document.addEventListener("DOMContentLoaded", function() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.rv').forEach((el) => observer.observe(el));
+  });
+</script>
+</body>
+</html>

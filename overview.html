@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>사업안내 | 남성역 헤머튼 HEMATEN</title>
+
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<link rel="stylesheet" href="./style.css">
+
+<style>
+/* ─────────────── BASE ─────────────── */
+* { font-family: 'Pretendard', sans-serif !important; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; padding: 0; background: #fff; color: #1a1a18; }
+
+/* ─────────────── PAGE HERO ─────────────── */
+.page-hero {
+  background: #1c1917; padding: 120px 0 80px;
+  position: relative; overflow: hidden; text-align: center;
+}
+.page-hero::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(204,167,84,.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+.page-hero-en {
+  font-weight: 700; font-size: 13px; color: #cca754;
+  letter-spacing: .2em; margin-bottom: 16px; text-transform: uppercase;
+}
+.page-hero-title {
+  font-size: clamp(40px, 6vw, 54px); color: #fff; font-weight: 800;
+  letter-spacing: -0.03em; line-height: 1.15; margin: 0 0 24px;
+}
+.page-breadcrumb {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  font-size: 14px; color: rgba(255,255,255,.4); font-weight: 400;
+}
+.page-breadcrumb a { color: rgba(255,255,255,.6); text-decoration: none; transition: color .2s; }
+.page-breadcrumb a:hover { color: #fff; }
+
+/* ─────────────── COMMON SECTION ─────────────── */
+.section { padding: 120px 0; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+.en-label { display: inline-block; font-size: 13px; font-weight: 700; color: #cca754; letter-spacing: .15em; margin-bottom: 12px; text-transform: uppercase; }
+.sec-title { font-size: 38px; font-weight: 800; color: #1a1a18; line-height: 1.2; letter-spacing: -0.03em; margin: 0 0 20px; }
+.sec-line { width: 40px; height: 3px; background: #cca754; margin-bottom: 24px; }
+.sec-desc { font-size: 16px; color: #4a4845; font-weight: 400; line-height: 1.8; letter-spacing: -0.01em; }
+
+/* ─────────────── 1. OVERVIEW (사업개요) ─────────────── */
+.ov-render {
+  margin-top: 48px; position: relative; overflow: hidden; 
+  border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+.ov-render img { width: 100%; aspect-ratio: 16/7; object-fit: cover; object-position: center; display: block; }
+.ov-render-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to right, rgba(28,25,23,0.8) 0%, rgba(28,25,23,0.3) 45%, transparent 100%);
+  display: flex; align-items: center; padding: 0 64px;
+}
+.info-grid { 
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; 
+  background: #E8E5DF; border: 1px solid #E8E5DF; border-radius: 16px; 
+  overflow: hidden; margin-top: 56px;
+}
+.cell { background: #fff; padding: 36px 28px; transition: background .2s; }
+.cell:hover { background: #F9F8F6; }
+.cell-idx { font-size: 14px; font-weight: 700; color: #cca754; letter-spacing: .1em; margin-bottom: 12px; }
+.cell-label { font-size: 13px; color: #8c8a85; font-weight: 500; margin-bottom: 8px; }
+.cell-val { font-size: 18px; font-weight: 800; color: #1a1a18; line-height: 1.4; letter-spacing: -0.02em; }
+.cell-sub { font-size: 13px; color: #8c8a85; margin-top: 8px; font-weight: 400; }
+@media(max-width:900px){ .info-grid { grid-template-columns: repeat(2, 1fr); } }
+
+/* ─────────────── 2. SCHEDULE (인허가 타임라인) ─────────────── */
+.schedule-section { background: #1c1917; color: #fff; }
+.tl { position: relative; padding-left: 32px; border-left: 2px solid rgba(255,255,255,0.1); margin-top: 60px; }
+.tl-item {
+  position: relative; padding: 32px 0 32px 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  display: grid; grid-template-columns: 160px 1fr auto; gap: 20px; align-items: center;
+  transition: all 0.3s;
+}
+.tl-item:hover { background: rgba(255,255,255,0.02); }
+.tl-item:last-child { border-bottom: none; }
+.tl-dot {
+  position: absolute; left: -25px; top: 50%; transform: translateY(-50%);
+  width: 12px; height: 12px; border-radius: 50%;
+  background: #1c1917; border: 2px solid rgba(255,255,255,0.2); transition: all 0.3s;
+}
+.tl-item.done .tl-dot { background: rgba(204,167,84,0.3); border-color: #cca754; }
+.tl-item.cur  .tl-dot { background: #cca754; border-color: #cca754; box-shadow: 0 0 0 6px rgba(204,167,84,0.15); }
+
+.tl-date { font-size: 16px; font-weight: 700; color: #cca754; }
+.tl-name { font-size: 20px; color: rgba(255,255,255,0.5); font-weight: 700; letter-spacing: -0.02em; transition: color 0.3s; }
+.tl-name.cur-name { color: #fff; }
+.tl-item.done .tl-name { color: rgba(255,255,255,0.8); }
+.tl-sub  { font-size: 15px; color: rgba(255,255,255,0.4); margin-top: 6px; font-weight: 400; line-height: 1.6; }
+
+.tl-badge {
+  display: inline-block; padding: 6px 16px; font-size: 12px; font-weight: 600; letter-spacing: .08em;
+  border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.5); border-radius: 30px;
+}
+.tl-badge.cur  { border-color: #cca754; color: #cca754; background: rgba(204,167,84,0.1); }
+.tl-badge.done { color: rgba(255,255,255,0.5); border-color: rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); }
+
+@media(max-width:768px){ .tl-item { grid-template-columns: 1fr; gap: 8px; padding-top: 24px; padding-bottom: 24px; } .tl-dot { top: 34px; } }
+
+/* ─────────────── 3. ORGANIZATION (사업주체) ─────────────── */
+.entity-section { background: #F4F2EE; }
+.entity-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 50px; }
+.entity-card { 
+  background: #fff; border: 1px solid #E8E5DF; border-radius: 16px; 
+  padding: 48px 36px; transition: all 0.3s;
+}
+.entity-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.06); border-color: transparent; }
+.entity-role { font-size: 13px; font-weight: 700; color: #cca754; letter-spacing: .15em; margin-bottom: 12px; }
+.entity-name { font-size: 24px; font-weight: 800; color: #1a1a18; margin-bottom: 16px; letter-spacing: -0.02em; line-height: 1.3; }
+.entity-desc { font-size: 15px; color: #8c8a85; font-weight: 400; line-height: 1.7; }
+@media(max-width:768px){ .entity-grid{ grid-template-columns: 1fr; } }
+
+/* ─── SCROLL REVEAL ─── */
+.rv { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.rv.visible { opacity: 1; transform: translateY(0); }
+.rv1 { transition-delay: .15s; }
+.rv2 { transition-delay: .3s; }
+.rv3 { transition-delay: .45s; }
+.rv4 { transition-delay: .6s; }
+</style>
+</head>
+<body>
+
+<script src="./shared.js"></script>
+<script>if (typeof injectNav === 'function') injectNav('overview');</script>
+
+<div class="page-hero">
+  <div class="container rv">
+    <div class="page-hero-en">Business Overview</div>
+    <h1 class="page-hero-title">사업안내</h1>
+    <div class="page-breadcrumb">
+      <a href="index.html">홈</a><span>›</span><span style="color:rgba(255,255,255,.5);">사업안내</span>
+    </div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="rv">
+      <span class="en-label">Overview</span>
+      <h2 class="sec-title">사업 개요</h2>
+      <div class="sec-line"></div>
+      <p class="sec-desc">서울특별시 동작구 사당동 277-1번지 일원, 지하4층~지상39층 6개동 공동주택 934세대</p>
+    </div>
+
+    <div class="ov-render rv rv1">
+      <img src="./overview_img.jpg" alt="남성역 헤머튼 조감도">
+      <div class="ov-render-overlay">
+        <div>
+          <div style="font-size:12px; font-weight:700; color:#cca754; letter-spacing:.24em; margin-bottom:14px;">BIRD-EYE VIEW</div>
+          <div style="font-size:clamp(32px,4vw,48px); color:#fff; font-weight:800; line-height:1.3; letter-spacing:-0.02em;">지하4층~지상39층<br>6개동 934세대</div>
+          <div style="width:40px; height:3px; background:#cca754; margin-top:24px;"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-grid rv rv2">
+      <div class="cell"><div class="cell-idx">01</div><div class="cell-label">사업위치</div><div class="cell-val">동작구 사당동<br>277-1번지 일원</div><div class="cell-sub">서울특별시</div></div>
+      <div class="cell"><div class="cell-idx">02</div><div class="cell-label">건축규모</div><div class="cell-val">지하4층 ~ 지상39층</div><div class="cell-sub">6개동 공동주택 934세대</div></div>
+      <div class="cell"><div class="cell-idx">03</div><div class="cell-label">대지면적</div><div class="cell-val">26,387.50㎡</div><div class="cell-sub">약 7,982평 · 건폐율 32.34%</div></div>
+      <div class="cell"><div class="cell-idx">04</div><div class="cell-label">연면적</div><div class="cell-val">166,630.54㎡</div><div class="cell-sub">약 48,893평 · 용적률 499.82%</div></div>
+      <div class="cell"><div class="cell-idx">05</div><div class="cell-label">세대구성</div><div class="cell-val">59A · 59B · 84A · 84B</div><div class="cell-sub">전용 59㎡ ~ 84㎡</div></div>
+      <div class="cell"><div class="cell-idx">06</div><div class="cell-label">주차대수</div><div class="cell-val">총 1,252대</div><div class="cell-sub">세대당 약 1.34대</div></div>
+      <div class="cell"><div class="cell-idx">07</div><div class="cell-label">용도지역</div><div class="cell-val">준주거지역</div><div class="cell-sub">지구단위계획구역</div></div>
+      <div class="cell"><div class="cell-idx">08</div><div class="cell-label">건축심의</div><div class="cell-val">'26년 하반기 예정</div><div class="cell-sub">사업계획승인 '28년 상반기</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section schedule-section" id="schedule">
+  <div class="container">
+    <div class="rv">
+      <span class="en-label" style="color:rgba(204,167,84,0.8);">Schedule</span>
+      <h2 class="sec-title" style="color:#fff;">인허가 일정</h2>
+      <div class="sec-line"></div>
+      <p class="sec-desc" style="color:rgba(255,255,255,.5);">지구단위 &amp; 건축심의 동의서 동시 징구로 인허가 기간 단축<br>'26년 상반기 지구단위 접수 → '28년 상반기 사업계획승인 예정</p>
+    </div>
+    
+    <div class="tl rv rv1">
+      <div class="tl-item done">
+        <div class="tl-dot"></div>
+        <div class="tl-date">'23년 11월</div>
+        <div><div class="tl-name">지구단위 사전검토</div><div class="tl-sub">역세권 장기전세주택 사전검토 완료</div></div>
+        <div><div class="tl-badge done">완료</div></div>
+      </div>
+      <div class="tl-item done">
+        <div class="tl-dot"></div>
+        <div class="tl-date">'25년 9월</div>
+        <div><div class="tl-name">조합모집신고</div><div class="tl-sub">동작구청 조합원 모집 신고필증 수령 (535명)</div></div>
+        <div><div class="tl-badge done">완료</div></div>
+      </div>
+      <div class="tl-item cur">
+        <div class="tl-dot"></div>
+        <div class="tl-date">'26년 상반기</div>
+        <div><div class="tl-name cur-name">지구단위 접수 (예정)</div><div class="tl-sub" style="color:rgba(255,255,255,0.7);">토지면적의 2/3 이상 토지소유자 동의</div></div>
+        <div><div class="tl-badge cur">진행 중</div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">'26년 하반기</div>
+        <div><div class="tl-name">건축심의 접수 (예정)</div><div class="tl-sub">구역 내 토지면적 2/3 이상 동의</div></div>
+        <div><div class="tl-badge">예정</div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">'27년 하반기</div>
+        <div><div class="tl-name">조합설립 (예정)</div><div class="tl-sub">주택건설대지의 80/100 이상 토지사용승낙</div></div>
+        <div><div class="tl-badge">예정</div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">'28년 상반기</div>
+        <div><div class="tl-name">사업계획승인 (예정)</div><div class="tl-sub">해당 대지면적의 95% 이상 소유권 확보</div></div>
+        <div><div class="tl-badge">예정</div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">'29년 상반기</div>
+        <div><div class="tl-name">착공 (예정)</div><div class="tl-sub"></div></div>
+        <div><div class="tl-badge">예정</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section entity-section" id="entity">
+  <div class="container">
+    <div class="rv">
+      <span class="en-label">Organization</span>
+      <h2 class="sec-title">사업 주체</h2>
+      <div class="sec-line"></div>
+    </div>
+    
+    <div class="entity-grid rv rv1">
+      <div class="entity-card">
+        <div class="entity-role">시 행 사</div>
+        <div class="entity-name">동작남성역 지역주택조합<br>추진위원회</div>
+        <div class="entity-desc">조합원 모집 신고필증 수령 완료<br>조합원 수 535명 (2025.09.30 기준)</div>
+      </div>
+      <div class="entity-card">
+        <div class="entity-role">업무대행사</div>
+        <div class="entity-name">㈜동명디앤씨</div>
+        <div class="entity-desc">지역주택조합 사업 실적 다수<br>힐스테이트 동작 시그니처 등 성공 사례</div>
+      </div>
+      <div class="entity-card">
+        <div class="entity-role">자금대리사무사</div>
+        <div class="entity-name">우리자산신탁</div>
+        <div class="entity-desc">조합원 납입금 안전 관리<br>신탁 방식 자금 보관</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  if (typeof injectFooter === 'function') injectFooter();
+
+  // 스크롤 애니메이션 옵저버 (모든 페이지 공통)
+  document.addEventListener("DOMContentLoaded", function() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.rv').forEach((el) => observer.observe(el));
+  });
+</script>
+</body>
+</html>

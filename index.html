@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>남성역 헤머튼 | HEMATEN 지역주택조합</title>
+
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<link rel="stylesheet" href="./style.css">
+
+<style>
+/* ─────────────── BASE ─────────────── */
+* { font-family: 'Pretendard', sans-serif !important; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; padding: 0; background: #fff; color: #1a1a18; }
+
+/* ─────────────── 1. HERO (메인 꽉 차는 화면) ─────────────── */
+.hero {
+  position: relative;
+  height: 100vh; /* 모니터 화면에 딱 맞게 100% 꽉 채움 */
+  display: flex; flex-direction: column; justify-content: flex-end; align-items: center;
+  padding-bottom: 8vh;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background-image: url('./hero.jpg'); /* 💡 경로 확실하게 수정 */
+  background-size: cover; background-position: center 30%;
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(10, 8, 6, 0.85) 0%, rgba(10, 8, 6, 0.4) 40%, rgba(10, 8, 6, 0) 80%);
+}
+.hero-body {
+  position: relative; z-index: 2; padding: 0 20px; width: 100%; max-width: 1200px;
+  display: flex; flex-direction: column; align-items: center; text-align: center; 
+}
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 10px;
+  border: 1px solid rgba(158,125,46,.5); padding: 7px 16px; margin-bottom: 24px;
+  font-weight: 600; font-size: 13px; color: rgba(191,160,88,.9); letter-spacing: .2em;
+  background: rgba(0,0,0,0.4); border-radius: 30px; backdrop-filter: blur(4px);
+}
+.hero-tag-dot { width: 6px; height: 6px; border-radius: 50%; background: #cca754; flex-shrink: 0; }
+.hero-sub-en { font-weight: 800; font-size: clamp(50px,8vw,100px); color: rgba(255,255,255,.06); letter-spacing: .12em; line-height: 1; margin-bottom: -14px; }
+.hero-title { font-size: clamp(40px,6vw,72px); color: #fff; font-weight: 700; line-height: 1.25; letter-spacing: -0.03em; margin-bottom: 20px; text-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5); }
+.hero-title em { color: #cca754; font-style: normal; font-weight: 800; display: block; }
+.hero-desc { font-size: 18px; color: rgba(255,255,255,.85); font-weight: 400; line-height: 1.8; margin-bottom: 40px; text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5); }
+
+/* 프리미엄 바 */
+.premium-bar {
+  display: flex; gap: 30px; justify-content: center; flex-wrap: wrap;
+  background: rgba(20, 18, 16, 0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px;
+  padding: 24px 48px; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+.pb-item { display: flex; align-items: center; gap: 12px; }
+.pb-num { color: #cca754; font-weight: 800; font-size: 20px; font-style: italic; }
+.pb-text { color: #fff; font-weight: 600; font-size: 16px; letter-spacing: -0.02em; }
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+
+@media(max-width: 768px) {
+  .premium-bar { flex-direction: column; gap: 15px; padding: 20px 30px; text-align: left; }
+}
+
+/* ─────────────── 2. NUMBERS (검은 띠 영역 확실히 구분) ─────────────── */
+.num-band { background: #1c1917; padding: 60px 0; border-top: 1px solid rgba(158,125,46,.12); border-bottom: 1px solid rgba(158,125,46,.12); }
+.num-grid { display: grid; grid-template-columns: repeat(4,1fr); max-width: 1200px; margin: 0 auto; padding: 0 48px;}
+.num-item { text-align: center; padding: 16px 24px; border-right: 1px solid rgba(255,255,255,.06); }
+.num-item:last-child { border-right: none; }
+.num-v { font-size: 48px; font-weight: 800; color: #fff; line-height: 1; letter-spacing: -0.02em; }
+.num-v span { font-size: 24px; color: #cca754; margin-left: 4px; }
+.num-l { font-size: 15px; color: rgba(255,255,255,.5); margin-top: 12px; }
+
+/* ─────────────── 3. OVERVIEW IMAGE (조감도 이미지 영역) ─────────────── */
+.image-section { overflow: hidden; line-height: 0; position: relative; }
+.image-section img { width: 100%; aspect-ratio: 16/7; object-fit: cover; } /* 💡 실제 있는 파일명으로 연결할 예정 */
+.image-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(255,255,255,0.05) 0%, transparent 40%, transparent 60%, rgba(255,255,255,0.05) 100%); }
+
+/* ─────────────── 4. MENU CARDS (밝은 회색 배경으로 확실한 분할) ─────────────── */
+.menu-section { background: #F4F2EE; padding: 120px 0; }
+.menu-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 1px; background: #E8E5DF; border: 1px solid #E8E5DF; max-width: 1200px; margin: 0 auto; width: calc(100% - 96px);}
+.menu-card { background: #fff; padding: 50px 30px; display: flex; flex-direction: column; gap: 16px; transition: all .28s; position: relative; overflow: hidden; text-decoration: none; height: 100%; }
+.menu-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background: #cca754; transform: scaleX(0); transform-origin: left; transition: transform .32s; }
+.menu-card:hover { background: #0d0d0b; transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,.15); z-index: 10; }
+.menu-card:hover .mc-title, .menu-card:hover .mc-desc { color: rgba(255,255,255,.7); }
+.menu-card:hover .mc-icon, .menu-card:hover .mc-arrow { color: #cca754; }
+.menu-card:hover::after { transform: scaleX(1); }
+.mc-icon { width: 36px; height: 36px; color: #cca754; transition: color .28s; margin-bottom: 10px; }
+.mc-icon svg { width: 100%; height: 100%; }
+.mc-title { font-size: 20px; font-weight: 700; color: #1a1a18; transition: color .28s; letter-spacing: -0.02em; }
+.mc-desc { font-size: 15px; color: #8c8a85; font-weight: 400; line-height: 1.65; transition: color .28s; letter-spacing: -0.01em; }
+.mc-arrow { font-size: 20px; font-weight: 600; color: #cca754; margin-top: auto; transition: color .28s; padding-top: 20px; }
+
+/* ─────────────── 5. HIGHLIGHTS (완전 흰색 배경으로 분위기 반전) ─────────────── */
+.hl-section { padding: 120px 0; background: #ffffff; }
+.hl-header { max-width: 1200px; margin: 0 auto 50px; padding: 0 48px; width: 100%; }
+.hl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: #E8E5DF; border: 1px solid #E8E5DF; max-width: 1200px; margin: 0 auto; width: calc(100% - 96px); }
+.hl-card { background: #fff; padding: 56px 48px; transition: background .25s; }
+.hl-card:hover { background: #F9F8F6; }
+.hl-num { font-size: 54px; color: rgba(158,125,46,.15); font-weight: 800; line-height: 1; margin-bottom: 12px; }
+.hl-title { font-size: 24px; font-weight: 700; color: #1a1a18; margin-bottom: 14px; letter-spacing: -0.02em; }
+.hl-text { font-size: 16px; color: #4a4845; font-weight: 400; line-height: 1.8; letter-spacing: -0.01em; }
+.hl-link { display: inline-flex; align-items: center; gap: 6px; font-size: 15px; color: #cca754; margin-top: 20px; font-weight: 600; letter-spacing: .02em; text-decoration: none; }
+.hl-link:hover { color: #b59245; }
+
+/* ─────────────── 6. PARALLAX PANORAMA & CONTACT ─────────────── */
+.pano-band { 
+  position: relative; width: 100%; height: 500px; 
+  background-image: url('./panorama.jpg'); /* 💡 경로 확실하게 수정 */
+  background-size: cover; background-position: center; background-attachment: fixed; 
+}
+.pano-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to right,rgba(28, 25, 23, 0.8) 0%,rgba(28, 25, 23, 0.4) 50%,transparent 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.pano-copy { text-align: center; }
+
+.qc-section { background: #1c1917; padding: 80px 0; width: 100%; border-top: 1px solid rgba(255,255,255,0.05); }
+.qc-inner { display: flex; align-items: center; justify-content: space-between; gap: 48px; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+.qc-left h2 { font-size: 32px; color: #fff; font-weight: 800; margin-bottom: 10px; letter-spacing: -0.02em; margin-top: 0;}
+.qc-left p { font-size: 16px; color: rgba(255,255,255,.5); font-weight: 400; margin-bottom: 0;}
+.qc-phone { font-size: clamp(32px,4vw,50px); color: #cca754; font-weight: 800; letter-spacing: .02em; }
+.qc-right { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+
+/* ─── SCROLL REVEAL (스르륵 효과) ─── */
+.rv { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.rv.visible { opacity: 1; transform: translateY(0); }
+.rv1 { transition-delay: .15s; }
+.rv2 { transition-delay: .3s; }
+.rv3 { transition-delay: .45s; }
+.rv4 { transition-delay: .6s; }
+
+/* ─── 버튼 공통 ─── */
+.btn-gold { background-color: #cca754; color: #fff; padding: 16px 36px; text-decoration: none; border-radius: 4px; font-weight: 700; border: 1px solid #cca754; transition: all 0.3s; font-size: 16px; }
+.btn-gold:hover { background-color: #b59245; border-color: #b59245; }
+.btn-outline-gold { color: #fff; border: 1px solid rgba(255,255,255,.5); padding: 16px 36px; text-decoration: none; border-radius: 4px; font-weight: 700; transition: all 0.3s; font-size: 16px; }
+.btn-outline-gold:hover { background-color: rgba(255,255,255,0.1); border-color: #fff;}
+</style>
+</head>
+<body>
+
+<script src="./shared.js"></script>
+<script>if (typeof injectNav === 'function') injectNav('index');</script>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  
+  <div class="hero-body">
+    <div class="hero-sub-en rv rv1">HEMATEN</div>
+    <h1 class="hero-title rv rv2">서울 프리미엄의 중심,<br><em>남성역 헤머튼</em></h1>
+    <p class="hero-desc rv rv3">강남·반포 생활을 일상으로, 이제 남성역에서 만나보세요</p>
+    
+    <div class="premium-bar rv rv4">
+      <div class="pb-item"><span class="pb-num">01</span><span class="pb-text">7호선 초역세권</span></div>
+      <div class="pb-item"><span class="pb-num">02</span><span class="pb-text">강남·반포 생활권</span></div>
+      <div class="pb-item"><span class="pb-num">03</span><span class="pb-text">934세대 대단지</span></div>
+      <div class="pb-item"><span class="pb-num">04</span><span class="pb-text">합리적 모집가</span></div>
+    </div>
+
+    <div class="hero-btns rv rv4">
+      <a href="contact.html" class="btn-gold">조합원 상담 신청</a>
+      <a href="overview.html" class="btn-outline-gold">사업개요 보기</a>
+    </div>
+  </div>
+</section>
+
+<section class="num-band">
+  <div class="num-grid">
+    <div class="num-item rv"><div class="num-v">934<span>세대</span></div><div class="num-l">총 세대수</div></div>
+    <div class="num-item rv rv1"><div class="num-v">39<span>F</span></div><div class="num-l">최고층수</div></div>
+    <div class="num-item rv rv2"><div class="num-v">26,387<span>㎡</span></div><div class="num-l">대지면적</div></div>
+    <div class="num-item rv rv3"><div class="num-v">1,252<span>대</span></div><div class="num-l">주차대수</div></div>
+  </div>
+</section>
+
+<section class="image-section rv">
+  <img src="./overview_img.jpg" alt="남성역 헤머튼 단지 조감도">
+  <div class="image-overlay"></div>
+</section>
+
+<section class="menu-section">
+  <div class="menu-grid">
+    <a href="overview.html" class="menu-card rv">
+      <div class="mc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/><line x1="8" y1="9" x2="11" y2="9"/></svg></div>
+      <div class="mc-title">사업안내</div>
+      <div class="mc-desc">사업개요 · 인허가일정<br>사업주체 안내</div>
+      <div class="mc-arrow">→</div>
+    </a>
+    <a href="location.html" class="menu-card rv rv1">
+      <div class="mc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+      <div class="mc-title">입지환경</div>
+      <div class="mc-desc">사당역·남성역 교통망<br>교육 및 생활 편의시설</div>
+      <div class="mc-arrow">→</div>
+    </a>
+    <a href="complex.html" class="menu-card rv rv2">
+      <div class="mc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="7" height="13"/><rect x="14" y="4" width="7" height="17"/><line x1="3" y1="21" x2="21" y2="21"/></svg></div>
+      <div class="mc-title">단지안내</div>
+      <div class="mc-desc">단지배치도 및 동호수<br>프리미엄 커뮤니티</div>
+      <div class="mc-arrow">→</div>
+    </a>
+    <a href="units.html" class="menu-card rv rv3">
+      <div class="mc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+      <div class="mc-title">세대안내</div>
+      <div class="mc-desc">59㎡ / 84㎡ 평면도<br>모집가 및 풀퍼니처</div>
+      <div class="mc-arrow">→</div>
+    </a>
+    <a href="contact.html" class="menu-card rv rv4">
+      <div class="mc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+      <div class="mc-title">고객센터</div>
+      <div class="mc-desc">홍보관 오시는 길<br>온라인 상담 신청</div>
+      <div class="mc-arrow">→</div>
+    </a>
+  </div>
+</section>
+
+<section class="hl-section">
+  <div class="hl-header rv">
+    <span style="color:#cca754; font-weight:700; font-size:14px; letter-spacing:0.1em; display:inline-block; margin-bottom:10px;">Why HEMATEN</span>
+    <h2 style="font-size:38px; font-weight:800; letter-spacing:-0.03em; margin:0; color:#1a1a18;">남성역 헤머튼을<br>선택해야 하는 이유</h2>
+    <div style="width:40px; height:3px; background:#cca754; margin:24px 0 0;"></div>
+  </div>
+  <div class="hl-grid">
+    <div class="hl-card rv">
+      <div class="hl-num">01</div>
+      <div class="hl-title">7호선 남성역 초역세권</div>
+      <div class="hl-text">도보 5분 이내 지하철 이용 가능. 강남구청까지 12분, 서울역까지 20분. 서리풀터널 이용 시 강남까지 차량 30분 접근 가능.</div>
+      <a href="location.html" class="hl-link">입지환경 보기 →</a>
+    </div>
+    <div class="hl-card rv rv1">
+      <div class="hl-num">02</div>
+      <div class="hl-title">지역주택조합 4차 하이팰리스</div>
+      <div class="hl-text">동작 1차·상도 2차·이수 3차의 성공에 이어 동명디앤씨·㈜상우코퍼레이션·코리아그룹이 선보이는 4차 프리미 단지.</div>
+      <a href="overview.html" class="hl-link">사업개요 보기 →</a>
+    </div>
+    <div class="hl-card rv rv2">
+      <div class="hl-num">03</div>
+      <div class="hl-title">최초 모집가 대비 막대한 프리미엄</div>
+      <div class="hl-text">인근 유사 성공사례 분석 결과 인허가 진행에 따른 지속적 모집가 상승 확인. 전용 84㎡ 기준 15~42% 상승 사례.</div>
+      <a href="units.html#price" class="hl-link">모집가 보기 →</a>
+    </div>
+    <div class="hl-card rv rv3">
+      <div class="hl-num">04</div>
+      <div class="hl-title">GTX-D · 사당역 복합환승센터</div>
+      <div class="hl-text">GTX-D 예타 통과, 사당역 복합환승센터 건립 예정. 광역 교통 인프라 개선으로 엄청난 미래 가치 상승 기대.</div>
+      <a href="location.html#dev" class="hl-link">개발호재 보기 →</a>
+    </div>
+  </div>
+</section>
+
+<section class="pano-band rv">
+  <div class="pano-overlay">
+    <div class="pano-copy rv rv1">
+      <span style="color:#cca754; font-weight:700; font-size:14px; letter-spacing:0.1em; display:inline-block; margin-bottom:14px;">Premium Location</span>
+      <h2 style="font-size:clamp(32px,4vw,54px); color:#fff; font-weight:800; margin:0 0 20px; line-height: 1.3;">강남 바로 앞<br>반포 생활권 대단지</h2>
+      <p style="color:rgba(255,255,255,.7); font-size: 18px; line-height:1.8; margin:0;">사당·이수·방배를 넘어 강남까지 이어지는<br>중심 생활권에서 누리는 프리미엄 주거</p>
+    </div>
+  </div>
+</section>
+
+<section class="qc-section">
+  <div class="qc-inner rv">
+    <div class="qc-left">
+      <h2>상담 및 문의</h2>
+      <p>전문 상담사가 친절하게 안내해 드립니다 &nbsp;·&nbsp; 평일 09:00~18:00 / 주말 10:00~17:00</p>
+    </div>
+    <div class="qc-phone">02-588-5840</div>
+    <div class="qc-right">
+      <a href="tel:0255885840" class="btn-gold">전화 상담</a>
+      <a href="contact.html" class="btn-outline-gold" style="border-color:rgba(255,255,255,0.3); color:rgba(255,255,255,0.8);">온라인 신청</a>
+    </div>
+  </div>
+</section>
+
+<script>
+  if (typeof injectFooter === 'function') injectFooter();
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.rv').forEach((el) => observer.observe(el));
+  });
+</script>
+</body>
+</html>
