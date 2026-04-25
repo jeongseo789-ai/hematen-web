@@ -245,3 +245,35 @@ button { cursor:pointer; font-family:inherit; }
 /* ── SVG ICON ── */
 .svg-icon { display:inline-flex; align-items:center; justify-content:center; }
 .svg-icon svg { display:block; }
+
+/* 📱 폰 화면(가로 768px 이하) 전용 디자인 다듬기 */
+@media (max-width: 768px) {
+  /* 1. 쓸데없이 넓은 위아래 여백을 반으로 확 줄임 */
+  .section { padding: 60px 0 !important; }
+  .page-hero { padding: 90px 0 50px !important; }
+  
+  /* 2. 핸드폰 화면에 맞게 좌우 여백(안전지대) 축소 */
+  .container { padding: 0 20px !important; }
+  .hero-body { padding: 0 20px !important; }
+
+  /* 3. 폰에서 너무 큰 글씨들 다이어트 (아기자기하게) */
+  .sec-title { font-size: 26px !important; margin-bottom: 12px !important; }
+  .hero-title { font-size: 32px !important; }
+  .hero-desc { font-size: 15px !important; margin-bottom: 30px !important;}
+  .feature-title { font-size: 22px !important; }
+  .page-hero-title { font-size: 32px !important; }
+
+  /* 4. 블록 사이의 간격(Gap) 좁히기 */
+  .feature-split, .dev-two, .loc-two, .comm-info { 
+    gap: 28px !important; 
+    margin-top: 32px !important; 
+  }
+  
+  /* 5. 폰에서는 버튼도 꽉 차게 100% 길이로 만들면 누르기 편함 (선택) */
+  .hero-btns a { width: 100%; text-align: center; }
+  
+  /* 6. 메뉴 카드나 특징 박스 안쪽 여백 줄이기 */
+  .cell, .menu-card, .dev-item, .comm-info, .hl-card {
+    padding: 24px !important;
+  }
+}
