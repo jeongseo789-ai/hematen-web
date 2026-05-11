@@ -246,34 +246,187 @@ button { cursor:pointer; font-family:inherit; }
 .svg-icon { display:inline-flex; align-items:center; justify-content:center; }
 .svg-icon svg { display:block; }
 
-/* 📱 폰 화면(가로 768px 이하) 전용 디자인 다듬기 */
+/* ━━━ MOBILE: 768px – Base ━━━ */
 @media (max-width: 768px) {
-  /* 1. 쓸데없이 넓은 위아래 여백을 반으로 확 줄임 */
   .section { padding: 60px 0 !important; }
-  .page-hero { padding: 90px 0 50px !important; }
-  
-  /* 2. 핸드폰 화면에 맞게 좌우 여백(안전지대) 축소 */
+  .page-hero { padding: 80px 0 44px !important; }
   .container { padding: 0 20px !important; }
   .hero-body { padding: 0 20px !important; }
-
-  /* 3. 폰에서 너무 큰 글씨들 다이어트 (아기자기하게) */
   .sec-title { font-size: 26px !important; margin-bottom: 12px !important; }
   .hero-title { font-size: 32px !important; }
-  .hero-desc { font-size: 15px !important; margin-bottom: 30px !important;}
+  .hero-desc { font-size: 15px !important; margin-bottom: 30px !important; }
   .feature-title { font-size: 22px !important; }
-  .page-hero-title { font-size: 32px !important; }
+  .page-hero-title { font-size: 30px !important; }
+  .feature-split { gap: 24px !important; margin-top: 32px !important; }
+  .cell, .menu-card, .dev-item, .hl-card { padding: 24px !important; }
+}
 
-  /* 4. 블록 사이의 간격(Gap) 좁히기 */
-  .feature-split, .dev-two, .loc-two, .comm-info { 
-    gap: 28px !important; 
-    margin-top: 32px !important; 
+/* ━━━ MOBILE: 768px – Layout Overrides ━━━ */
+@media (max-width: 768px) {
+
+  /* ── num-band: 4-col → 2×2 ── */
+  .num-band { padding: 48px 0 !important; }
+  .num-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    padding: 0 !important;
   }
-  
-  /* 5. 폰에서는 버튼도 꽉 차게 100% 길이로 만들면 누르기 편함 (선택) */
-  .hero-btns a { width: 100%; text-align: center; }
-  
-  /* 6. 메뉴 카드나 특징 박스 안쪽 여백 줄이기 */
-  .cell, .menu-card, .dev-item, .comm-info, .hl-card {
-    padding: 24px !important;
+  .num-item {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255,255,255,.06) !important;
+    padding: 24px 12px !important;
   }
+  .num-item:nth-child(odd) {
+    border-right: 1px solid rgba(255,255,255,.06) !important;
+  }
+  .num-item:nth-last-child(-n+2) { border-bottom: none !important; }
+  .num-v { font-size: 34px !important; }
+  .num-l { font-size: 13px !important; margin-top: 8px !important; }
+
+  /* ── image-section ── */
+  .image-section img { aspect-ratio: 4/3 !important; }
+
+  /* ── menu-section: 5-col → 2-col ── */
+  .menu-section { padding: 56px 0 !important; }
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    width: calc(100% - 40px) !important;
+    margin: 0 auto !important;
+  }
+  .menu-card { padding: 32px 20px !important; }
+  .mc-title { font-size: 17px !important; }
+  .mc-desc { font-size: 13px !important; }
+
+  /* ── hl-section: 2-col → 1-col ── */
+  .hl-section { padding: 56px 0 !important; }
+  .hl-header { padding: 0 20px !important; margin-bottom: 28px !important; }
+  .hl-grid {
+    grid-template-columns: 1fr !important;
+    width: calc(100% - 40px) !important;
+    margin: 0 auto !important;
+  }
+  .hl-card { padding: 36px 28px !important; }
+  .hl-title { font-size: 20px !important; }
+  .hl-num { font-size: 40px !important; }
+
+  /* ── hero: buttons & bar ── */
+  .hero-btns {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    gap: 12px !important;
+  }
+  .hero-btns a {
+    width: 100% !important;
+    text-align: center !important;
+    padding: 18px 24px !important;
+    display: block !important;
+  }
+  .premium-bar { padding: 20px 24px !important; width: 100% !important; }
+  .hero-tag { font-size: 11px !important; }
+
+  /* ── pano-band: iOS fixed bg fix ── */
+  .pano-band {
+    background-attachment: scroll !important;
+    height: 280px !important;
+  }
+
+  /* ── qc-section: horizontal → stacked ── */
+  .qc-section { padding: 56px 0 !important; }
+  .qc-inner {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 0 20px !important;
+    gap: 20px !important;
+  }
+  .qc-left h2 { font-size: 22px !important; }
+  .qc-left p { font-size: 14px !important; }
+  .qc-phone { font-size: 28px !important; }
+  .qc-right {
+    width: 100% !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+  .qc-right a {
+    width: 100% !important;
+    text-align: center !important;
+    padding: 16px !important;
+    display: block !important;
+  }
+
+  /* ── overview: render image & overlay ── */
+  .ov-render img { aspect-ratio: 3/2 !important; }
+  .ov-render-overlay {
+    padding: 20px !important;
+    align-items: flex-end !important;
+  }
+
+  /* ── info-grid: 4-col → 2-col ── */
+  .info-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .cell { padding: 24px 18px !important; }
+
+  /* ── data-table: compact ── */
+  .data-table th,
+  .data-table td { padding: 10px 8px !important; font-size: 13px !important; }
+
+  /* ── units: price tabs overflow scroll ── */
+  .price-tabs {
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding-bottom: 4px !important;
+  }
+  .price-tab {
+    padding: 12px 20px !important;
+    font-size: 14px !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* ── units: furniture grid 4-col → 2-col ── */
+  .furn-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+  .furn-item { padding: 28px 16px !important; }
+
+  /* ── complex: feature copy ── */
+  .feature-copy { padding: 28px 20px !important; }
+
+  /* ── location: loc-col ── */
+  .loc-col { padding: 28px 20px !important; }
+
+  /* ── contact: form & info ── */
+  .c-form { padding: 28px 20px !important; }
+  .c-val.phone { font-size: 22px !important; }
+  .dir-card { padding: 20px !important; }
+
+  /* ── complex: community img wrap ── */
+  .comm-full-img-wrap { padding: 32px 16px !important; }
+  .comm-spec-title { font-size: 22px !important; }
+  .comm-spec-area { font-size: 13px !important; }
+
+  /* ── location: success-case ── */
+  .success-case { padding: 28px 24px !important; }
+
+  /* ── contact: map ── */
+  .map-box { height: 280px !important; }
+
+  /* ── footer ── */
+  .footer { padding: 48px 0 28px !important; }
+  .footer-tel { font-size: 18px !important; }
+  .footer-logo-en { font-size: 18px !important; }
+}
+
+/* ━━━ MOBILE: 480px – Extra small ━━━ */
+@media (max-width: 480px) {
+  .menu-grid { grid-template-columns: 1fr !important; }
+  .num-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .fp-tabs { gap: 8px !important; }
+  .fp-tab { padding: 10px 14px !important; font-size: 13px !important; }
+  .comm-tabs { gap: 8px !important; }
+  .comm-tab { padding: 10px 14px !important; font-size: 13px !important; }
+  .hero-sub-en { font-size: 36px !important; margin-bottom: -6px !important; }
+  .sec-title { font-size: 24px !important; }
+  .page-hero-title { font-size: 26px !important; }
+  .hl-header h2 { font-size: 24px !important; }
 }

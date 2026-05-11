@@ -60,9 +60,9 @@ body { margin: 0; padding: 0; background: #fff; color: #1a1a18; }
 .fp-panel.on { display: grid; animation: fadeIn 0.5s ease; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-.fp-box { 
-  background: #F9F8F6; padding: 48px; border-radius: 16px; 
-  display: flex; align-items: center; justify-content: center; aspect-ratio: 1;
+.fp-box {
+  background: #F9F8F6; padding: 24px; border-radius: 16px;
+  display: flex; align-items: center; justify-content: center; min-height: 360px;
   box-shadow: inset 0 0 0 1px rgba(0,0,0,0.03);
 }
 .fp-title { font-size: 32px; font-weight: 800; color: #1a1a18; margin-bottom: 10px; letter-spacing: -0.02em; }
@@ -158,7 +158,7 @@ body { margin: 0; padding: 0; background: #fff; color: #1a1a18; }
       <p class="sec-desc">전용 59㎡ ~ 84㎡ 타입 구성 · 3Bay 판상형 및 2면통풍 4Bay 구조</p>
     </div>
     
-    <div class="fp-tabs rv rv1">
+    <div class="fp-tabs rv rv1" style="margin-top:48px;">
       <button class="fp-tab on" onclick="showFP('59a',this)">59A 타입</button>
       <button class="fp-tab" onclick="showFP('59b',this)">59B 타입</button>
       <button class="fp-tab" onclick="showFP('84a',this)">84A 타입</button>
@@ -167,29 +167,7 @@ body { margin: 0; padding: 0; background: #fff; color: #1a1a18; }
 
     <div class="fp-panel on rv rv2" id="fp59a">
       <div class="fp-box">
-        <svg class="fp-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-          <rect width="300" height="300" fill="transparent"/>
-          <rect x="18" y="18" width="264" height="264" fill="none" stroke="#1c1917" stroke-width="2.5"/>
-          <rect x="18" y="18" width="164" height="120" fill="#f4f2ee" stroke="#d6d3cd" stroke-width="1"/>
-          <text x="100" y="83" text-anchor="middle" font-size="12" font-weight="600" fill="#4a4845">거실 · 주방</text>
-          <rect x="182" y="18" width="100" height="95" fill="#e8e5df" stroke="#d6d3cd" stroke-width="1"/>
-          <text x="232" y="70" text-anchor="middle" font-size="12" font-weight="600" fill="#4a4845">안 방</text>
-          <rect x="18" y="138" width="164" height="28" fill="#f9f8f6" stroke="#d6d3cd" stroke-width="1" stroke-dasharray="4,2"/>
-          <text x="100" y="156" text-anchor="middle" font-size="10" font-weight="500" fill="#8c8a85">발코니</text>
-          <rect x="182" y="113" width="100" height="78" fill="#f4f2ee" stroke="#d6d3cd" stroke-width="1"/>
-          <text x="232" y="155" text-anchor="middle" font-size="12" font-weight="600" fill="#4a4845">방 2</text>
-          <rect x="18" y="166" width="80" height="60" fill="#e8e5df" stroke="#d6d3cd" stroke-width="1"/>
-          <text x="58" y="200" text-anchor="middle" font-size="11" font-weight="500" fill="#4a4845">욕실</text>
-          <rect x="98" y="166" width="84" height="60" fill="#f9f8f6" stroke="#d6d3cd" stroke-width="1"/>
-          <text x="140" y="200" text-anchor="middle" font-size="11" font-weight="500" fill="#4a4845">현관·복도</text>
-          <rect x="182" y="191" width="100" height="91" fill="#e8e5df" stroke="#d6d3cd" stroke-width="1"/>
-          <text x="232" y="240" text-anchor="middle" font-size="12" font-weight="600" fill="#4a4845">방 3</text>
-          <rect x="18" y="226" width="164" height="56" fill="#f4f2ee" stroke="#d6d3cd" stroke-width="1"/>
-          <text x="100" y="258" text-anchor="middle" font-size="11" font-weight="500" fill="#4a4845">다용도·창고</text>
-          <rect x="18" y="18" width="264" height="3" fill="#cca754"/>
-          <rect x="18" y="18" width="3" height="264" fill="#cca754"/>
-          <text x="150" y="11" text-anchor="middle" font-size="11" font-weight="800" fill="#cca754" letter-spacing="2">59A TYPE</text>
-        </svg>
+        <img src="./type_59a.png" alt="59A 타입 평면도" style="width:100%; height:100%; object-fit:contain; border-radius:8px;">
       </div>
       <div>
         <div class="fp-title">59A 타입</div>
@@ -208,29 +186,7 @@ body { margin: 0; padding: 0; background: #fff; color: #1a1a18; }
 
     <div class="fp-panel rv rv2" id="fp59b">
       <div class="fp-box">
-        <svg class="fp-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-          <rect width="300" height="300" fill="transparent"/>
-          <rect x="18" y="18" width="264" height="264" fill="none" stroke="#1c1917" stroke-width="2.5"/>
-          <rect x="18" y="18" width="170" height="112" fill="#f4f2ee" stroke="#d6d3cd" stroke-width="1"/>
-          <text x="103" y="79" text-anchor="middle" font-size="12" font-weight="600" fill="#4a4845">거실 · 주방</text>
-          <rect x="188" y="18" width="94" height="90" fill="#e8e5df" stroke="#d6d3cd" stroke-width="1"/>
-          <text x="235" y="67" text-anchor="middle" font-size="12" font-weight="600" fill="#4a4845">안 방</text>
-          <rect x="18" y="130" width="170" height="28" fill="#f9f8f6" stroke="#d6d3cd" stroke-width="1" stroke-dasharray="4,2"/>
-          <text x="103" y="148" text-anchor="middle" font-size="10" font-weight="500" fill="#8c8a85">발코니 (4Bay)</text>
-          <rect x="188" y="108" width="94" height="82" fill="#f4f2ee" stroke="#d6d3cd" stroke-width="1"/>
-          <text x="235" y="152" text-anchor="middle" font-size="12" font-weight="600" fill="#4a4845">방 2</text>
-          <rect x="18" y="158" width="84" height="90" fill="#f4f2ee" stroke="#d6d3cd" stroke-width="1"/>
-          <text x="60" y="207" text-anchor="middle" font-size="12" font-weight="600" fill="#4a4845">방 3</text>
-          <rect x="102" y="158" width="86" height="90" fill="#e8e5df" stroke="#d6d3cd" stroke-width="1"/>
-          <text x="145" y="207" text-anchor="middle" font-size="11" font-weight="500" fill="#4a4845">욕실·현관</text>
-          <rect x="188" y="190" width="94" height="92" fill="#e8e5df" stroke="#d6d3cd" stroke-width="1"/>
-          <text x="235" y="239" text-anchor="middle" font-size="12" font-weight="600" fill="#4a4845">방 4</text>
-          <rect x="18" y="248" width="264" height="34" fill="#f9f8f6" stroke="#d6d3cd" stroke-width="1" stroke-dasharray="4,2"/>
-          <text x="150" y="268" text-anchor="middle" font-size="10" font-weight="500" fill="#8c8a85">발코니 (2면통풍)</text>
-          <rect x="18" y="18" width="264" height="3" fill="#cca754"/>
-          <rect x="18" y="18" width="3" height="264" fill="#cca754"/>
-          <text x="150" y="11" text-anchor="middle" font-size="11" font-weight="800" fill="#cca754" letter-spacing="2">59B TYPE</text>
-        </svg>
+        <img src="./type_59b.png" alt="59B 타입 평면도" style="width:100%; height:100%; object-fit:contain; border-radius:8px;">
       </div>
       <div>
         <div class="fp-title">59B 타입</div>
@@ -249,27 +205,7 @@ body { margin: 0; padding: 0; background: #fff; color: #1a1a18; }
 
     <div class="fp-panel rv rv2" id="fp84a">
       <div class="fp-box">
-        <svg class="fp-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-          <rect width="300" height="300" fill="transparent"/>
-          <rect x="18" y="18" width="264" height="264" fill="none" stroke="#1c1917" stroke-width="2.5"/>
-          <rect x="18" y="18" width="178" height="118" fill="#f4f2ee" stroke="#d6d3cd" stroke-width="1"/>
-          <text x="107" y="83" text-anchor="middle" font-size="12" font-weight="600" fill="#4a4845">거실 · 주방 · 식당</text>
-          <rect x="196" y="18" width="86" height="85" fill="#e8e5df" stroke="#d6d3cd" stroke-width="1"/>
-          <text x="239" y="63" text-anchor="middle" font-size="12" font-weight="600" fill="#4a4845">안 방</text>
-          <rect x="18" y="136" width="178" height="28" fill="#f9f8f6" stroke="#d6d3cd" stroke-width="1" stroke-dasharray="4,2"/>
-          <text x="107" y="154" text-anchor="middle" font-size="10" font-weight="500" fill="#8c8a85">발코니</text>
-          <rect x="196" y="103" width="86" height="80" fill="#f4f2ee" stroke="#d6d3cd" stroke-width="1"/>
-          <text x="239" y="146" text-anchor="middle" font-size="12" font-weight="600" fill="#4a4845">방 2</text>
-          <rect x="18" y="164" width="88" height="118" fill="#f4f2ee" stroke="#d6d3cd" stroke-width="1"/>
-          <text x="62" y="227" text-anchor="middle" font-size="12" font-weight="600" fill="#4a4845">방 3</text>
-          <rect x="106" y="164" width="90" height="118" fill="#e8e5df" stroke="#d6d3cd" stroke-width="1"/>
-          <text x="151" y="227" text-anchor="middle" font-size="11" font-weight="500" fill="#4a4845">방 4 · 현관</text>
-          <rect x="196" y="183" width="86" height="99" fill="#e8e5df" stroke="#d6d3cd" stroke-width="1"/>
-          <text x="239" y="236" text-anchor="middle" font-size="11" font-weight="500" fill="#4a4845">욕실 · 창고</text>
-          <rect x="18" y="18" width="264" height="3" fill="#cca754"/>
-          <rect x="18" y="18" width="3" height="264" fill="#cca754"/>
-          <text x="150" y="11" text-anchor="middle" font-size="11" font-weight="800" fill="#cca754" letter-spacing="2">84A TYPE</text>
-        </svg>
+        <img src="./type_84a.png" alt="84A 타입 평면도" style="width:100%; height:100%; object-fit:contain; border-radius:8px;">
       </div>
       <div>
         <div class="fp-title">84A 타입</div>
@@ -288,27 +224,7 @@ body { margin: 0; padding: 0; background: #fff; color: #1a1a18; }
 
     <div class="fp-panel rv rv2" id="fp84b">
       <div class="fp-box">
-        <svg class="fp-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-          <rect width="300" height="300" fill="transparent"/>
-          <rect x="18" y="18" width="264" height="264" fill="none" stroke="#1c1917" stroke-width="2.5"/>
-          <rect x="18" y="18" width="182" height="112" fill="#f4f2ee" stroke="#d6d3cd" stroke-width="1"/>
-          <text x="109" y="79" text-anchor="middle" font-size="12" font-weight="600" fill="#4a4845">거실 · 주방 · 식당</text>
-          <rect x="200" y="18" width="82" height="82" fill="#e8e5df" stroke="#d6d3cd" stroke-width="1"/>
-          <text x="241" y="62" text-anchor="middle" font-size="12" font-weight="600" fill="#4a4845">안 방</text>
-          <rect x="18" y="130" width="182" height="28" fill="#f9f8f6" stroke="#d6d3cd" stroke-width="1" stroke-dasharray="4,2"/>
-          <text x="109" y="148" text-anchor="middle" font-size="10" font-weight="500" fill="#8c8a85">발코니 (2면통풍)</text>
-          <rect x="200" y="100" width="82" height="82" fill="#f4f2ee" stroke="#d6d3cd" stroke-width="1"/>
-          <text x="241" y="144" text-anchor="middle" font-size="12" font-weight="600" fill="#4a4845">방 2</text>
-          <rect x="18" y="158" width="91" height="124" fill="#f4f2ee" stroke="#d6d3cd" stroke-width="1"/>
-          <text x="63" y="224" text-anchor="middle" font-size="12" font-weight="600" fill="#4a4845">방 3</text>
-          <rect x="109" y="158" width="91" height="124" fill="#e8e5df" stroke="#d6d3cd" stroke-width="1"/>
-          <text x="154" y="224" text-anchor="middle" font-size="11" font-weight="500" fill="#4a4845">욕실·현관</text>
-          <rect x="200" y="182" width="82" height="100" fill="#e8e5df" stroke="#d6d3cd" stroke-width="1"/>
-          <text x="241" y="235" text-anchor="middle" font-size="12" font-weight="600" fill="#4a4845">방 4</text>
-          <rect x="18" y="18" width="264" height="3" fill="#cca754"/>
-          <rect x="18" y="18" width="3" height="264" fill="#cca754"/>
-          <text x="150" y="11" text-anchor="middle" font-size="11" font-weight="800" fill="#cca754" letter-spacing="2">84B TYPE</text>
-        </svg>
+        <img src="./type_84b.png" alt="84B 타입 평면도" style="width:100%; height:100%; object-fit:contain; border-radius:8px;">
       </div>
       <div>
         <div class="fp-title">84B 타입</div>
@@ -395,6 +311,9 @@ body { margin: 0; padding: 0; background: #fff; color: #1a1a18; }
       <div class="sec-line"></div>
       <p class="sec-desc">수요 선호도 높은 가전 기본 제공으로 나만의 주거 공간 완성!<br>풀옵션 고급 가전제품 기본 제공!</p>
     </div>
+    <div class="rv" style="margin-top:48px; border-radius:16px; overflow:hidden; box-shadow:0 15px 40px rgba(0,0,0,0.08); background:#f7f4ef;">
+      <img src="./fullopt.png" alt="풀옵션 고급 가전제품 기본 제공" style="width:100%; display:block;">
+    </div>
     <div class="furn-grid">
       <div class="furn-item rv"><div class="furn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M12 17v4M8 21h8"/><path d="M7 8h10M7 11h4"/></svg></div><div class="furn-name">시스템에어컨</div><div class="furn-brand">삼성전자 4대</div></div>
       <div class="furn-item rv"><div class="furn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/></svg></div><div class="furn-name">세탁기+건조기</div><div class="furn-brand">삼성전자</div></div>
@@ -404,6 +323,20 @@ body { margin: 0; padding: 0; background: #fff; color: #1a1a18; }
       <div class="furn-item rv rv2"><div class="furn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/><circle cx="7.5" cy="7.5" r="1" fill="currentColor" stroke="none"/><path d="M8 15l2-2 2 2 2-2 2 2"/></svg></div><div class="furn-name">식기세척기</div><div class="furn-brand">삼성전자</div></div>
       <div class="furn-item rv rv3"><div class="furn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"/><circle cx="8" cy="12" r="2.5"/><circle cx="15" cy="12" r="2.5"/><line x1="3" y1="6" x2="21" y2="6"/></svg></div><div class="furn-name">인덕션3구</div><div class="furn-brand">삼성전자</div></div>
       <div class="furn-item rv rv3"><div class="furn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v4H4zM6 8v12M18 8v12M6 20h12"/><line x1="9" y1="12" x2="15" y2="12"/></svg></div><div class="furn-name">렌지후드</div><div class="furn-brand">삼성전자</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:#1c1917;">
+  <div class="container">
+    <div class="rv">
+      <span class="en-label" style="color:#cca754;">Smart Home</span>
+      <h2 class="sec-title" style="color:#fff;">스마트 시스템</h2>
+      <div class="sec-line"></div>
+      <p class="sec-desc" style="color:rgba(255,255,255,.5);">스마트폰 하나로 집 전체를 제어<br>ECO · DIGITAL · ECONOMY · SECURITY 4대 시스템으로 삶의 질 수직 상승</p>
+    </div>
+    <div class="rv rv1" style="margin-top:48px; border-radius:16px; overflow:hidden; box-shadow:0 20px 50px rgba(0,0,0,0.4);">
+      <img src="./smart.png" alt="스마트 시스템" style="width:100%; display:block;">
     </div>
   </div>
 </section>

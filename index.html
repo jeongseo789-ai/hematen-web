@@ -58,7 +58,14 @@ body { margin: 0; padding: 0; background: #fff; color: #1a1a18; }
 .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
 
 @media(max-width: 768px) {
-  .premium-bar { flex-direction: column; gap: 15px; padding: 20px 30px; text-align: left; }
+  .premium-bar { flex-direction: column; gap: 15px; padding: 20px 24px; text-align: left; }
+  .pb-num { font-size: 17px; }
+  .pb-text { font-size: 14px; }
+  .num-band { padding: 48px 0; }
+}
+@media(max-width: 480px) {
+  .hero { padding-bottom: 6vh; }
+  .pb-item { gap: 8px; }
 }
 
 /* ─────────────── 2. NUMBERS (검은 띠 영역 확실히 구분) ─────────────── */

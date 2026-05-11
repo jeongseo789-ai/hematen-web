@@ -50,46 +50,48 @@ body { margin: 0; padding: 0; background: #fff; color: #1a1a18; }
 .loc-full { width: 100%; display: block; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.05); }
 
 /* ─────────────── 1. TRANSPORT & LIFE (교통 및 생활환경) ─────────────── */
-.loc-two { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; margin-top: 56px; }
-.loc-feat-list { display: flex; flex-direction: column; background: #fff; border: 1px solid #E8E5DF; border-radius: 16px; padding: 12px 32px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+.loc-two { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: #E8E5DF; border: 1px solid #E8E5DF; border-radius: 16px; overflow: hidden; margin-top: 56px; }
+.loc-col { background: #fff; padding: 40px 48px; }
+.loc-col-header { padding-bottom: 28px; border-bottom: 2px solid #E8E5DF; margin-bottom: 4px; }
 .loc-feat {
-  display: grid; grid-template-columns: 48px 1fr; gap: 16px;
-  padding: 24px 0; border-bottom: 1px solid #E8E5DF; align-items: start;
+  display: grid; grid-template-columns: 44px 1fr; gap: 16px;
+  padding: 22px 0; border-bottom: 1px solid #F4F2EE; align-items: center;
 }
 .loc-feat:last-child { border-bottom: none; }
-.loc-feat-icon { width: 36px; height: 36px; background: rgba(204,167,84,0.1); border-radius: 50%; color: #cca754; display: flex; align-items: center; justify-content: center; padding: 8px; }
+.loc-feat-icon { width: 36px; height: 36px; background: rgba(204,167,84,0.1); border-radius: 50%; color: #cca754; display: flex; align-items: center; justify-content: center; padding: 8px; flex-shrink: 0; }
 .loc-feat-icon svg { width: 100%; height: 100%; }
-.loc-feat-title { font-size: 20px; font-weight: 700; color: #1a1a18; margin-bottom: 8px; letter-spacing: -0.02em; }
-.loc-feat-desc { font-size: 15px; color: #8c8a85; font-weight: 400; line-height: 1.7; letter-spacing: -0.01em; }
+.loc-feat-title { font-size: 17px; font-weight: 700; color: #1a1a18; margin-bottom: 5px; letter-spacing: -0.02em; }
+.loc-feat-desc { font-size: 14px; color: #8c8a85; font-weight: 400; line-height: 1.65; letter-spacing: -0.01em; }
 
-/* ─────────────── 2. MAP (광역지도) ─────────────── */
-.map-section { background: #F4F2EE; }
-
-/* ─────────────── 3. DEVELOPMENT (개발호재) ─────────────── */
-.dev-two { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
-.dev-list { display: flex; flex-direction: column; gap: 24px; }
-.dev-item { 
-  padding: 32px; border: 1px solid #E8E5DF; border-radius: 16px; 
-  background: #fff; transition: all 0.3s; 
+/* ─────────────── 2. DEVELOPMENT (개발호재) ─────────────── */
+.dev-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.dev-item {
+  padding: 32px; border: 1px solid #E8E5DF; border-radius: 16px;
+  background: #fff; transition: all 0.3s;
 }
 .dev-item:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.06); border-color: transparent; }
-.dev-badge { 
+.dev-badge {
   display: inline-block; padding: 6px 12px; background: rgba(204,167,84,0.1); border-radius: 20px;
-  font-size: 12px; font-weight: 700; color: #cca754; letter-spacing: .05em; margin-bottom: 12px; 
+  font-size: 12px; font-weight: 700; color: #cca754; letter-spacing: .05em; margin-bottom: 12px;
 }
-.dev-title { font-size: 22px; font-weight: 800; color: #1a1a18; margin-bottom: 12px; letter-spacing: -0.02em; }
-.dev-desc { font-size: 15px; color: #4a4845; font-weight: 400; line-height: 1.7; margin-bottom: 20px; }
-.dev-detail { display: grid; grid-template-columns: 48px 1fr; gap: 8px 16px; background: #F9F8F6; padding: 16px; border-radius: 8px; font-size: 14px; }
+.dev-title { font-size: 20px; font-weight: 800; color: #1a1a18; margin-bottom: 12px; letter-spacing: -0.02em; }
+.dev-desc { font-size: 14px; color: #4a4845; font-weight: 400; line-height: 1.7; margin-bottom: 20px; }
+.dev-detail { display: grid; grid-template-columns: 48px 1fr; gap: 8px 16px; background: #F9F8F6; padding: 16px; border-radius: 8px; font-size: 13px; }
 .dev-detail-key { color: #8c8a85; font-weight: 600; }
 .dev-detail-val { color: #1a1a18; font-weight: 500; }
 
 .success-case {
-  background: #1c1917; border-radius: 16px; padding: 32px; margin-top: 24px;
+  background: #1c1917; border-radius: 16px; padding: 40px 48px; margin-top: 24px;
   color: #fff; box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  display: grid; grid-template-columns: auto 1fr; gap: 48px; align-items: center;
 }
 
 @media(max-width:900px){
-  .loc-two, .dev-two { grid-template-columns: 1fr; gap: 32px; }
+  .loc-two { grid-template-columns: 1fr; }
+  .dev-grid { grid-template-columns: 1fr; }
+  .loc-col { padding: 32px 28px; }
+  .success-case { grid-template-columns: 1fr; gap: 24px; padding: 32px 28px; }
+  .success-case > div:last-child { border-left: none; border-top: 1px solid rgba(255,255,255,0.12); padding-left: 0; padding-top: 24px; }
 }
 
 /* ─── SCROLL REVEAL ─── */
@@ -124,59 +126,46 @@ body { margin: 0; padding: 0; background: #fff; color: #1a1a18; }
       <p class="sec-desc">총 934세대 대단지의 새로운 주거 라이프 – 남성역 헤머튼을 만나보세요</p>
     </div>
 
-    <img src="./location.jpg" alt="남성역 입지환경" class="loc-full rv" style="margin-top:40px;">
+    <img src="./map.jpg" alt="남성역 입지환경" class="loc-full rv" style="margin-top:40px;">
 
     <div class="loc-two rv rv1">
-      <div>
-        <span class="en-label">Transportation</span>
-        <h3 class="sec-title" style="font-size:28px;">교통환경</h3>
-        <div class="sec-line"></div>
-        <div class="loc-feat-list">
-          <div class="loc-feat">
-            <div class="loc-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><line x1="3" y1="12" x2="21" y2="12"/><path d="M7 19l-2 2M17 19l2 2"/><circle cx="8" cy="8.5" r="1" fill="currentColor" stroke="none"/><circle cx="16" cy="8.5" r="1" fill="currentColor" stroke="none"/></svg></div>
-            <div><div class="loc-feat-title">7호선 남성역 초역세권</div><div class="loc-feat-desc">도보 5분 이내 · 강남구청 12분 · 서울역 20분</div></div>
-          </div>
-          <div class="loc-feat">
-            <div class="loc-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17H3v-5l2.5-5h13L21 12v5h-2M5 17a2 2 0 1 0 4 0 2 2 0 0 0-4 0m10 0a2 2 0 1 0 4 0 2 2 0 0 0-4 0"/><line x1="3" y1="12" x2="21" y2="12"/></svg></div>
-            <div><div class="loc-feat-title">서리풀터널 직접 접근</div><div class="loc-feat-desc">5분 이내 서초대로 진입, 서리풀터널 이용 강남 30분 접근</div></div>
-          </div>
-          <div class="loc-feat">
-            <div class="loc-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
-            <div><div class="loc-feat-title">이수역 4·7호선 더블역세권</div><div class="loc-feat-desc">이수역 이용 시 더블 역세권 활용 가능</div></div>
-          </div>
+      <div class="loc-col">
+        <div class="loc-col-header">
+          <span class="en-label">Transportation</span>
+          <h3 class="sec-title" style="font-size:26px; margin-bottom:0;">교통환경</h3>
+        </div>
+        <div class="loc-feat">
+          <div class="loc-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><line x1="3" y1="12" x2="21" y2="12"/><path d="M7 19l-2 2M17 19l2 2"/><circle cx="8" cy="8.5" r="1" fill="currentColor" stroke="none"/><circle cx="16" cy="8.5" r="1" fill="currentColor" stroke="none"/></svg></div>
+          <div><div class="loc-feat-title">7호선 남성역 초역세권</div><div class="loc-feat-desc">도보 5분 이내 · 강남구청 12분 · 서울역 20분</div></div>
+        </div>
+        <div class="loc-feat">
+          <div class="loc-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17H3v-5l2.5-5h13L21 12v5h-2M5 17a2 2 0 1 0 4 0 2 2 0 0 0-4 0m10 0a2 2 0 1 0 4 0 2 2 0 0 0-4 0"/><line x1="3" y1="12" x2="21" y2="12"/></svg></div>
+          <div><div class="loc-feat-title">서리풀터널 직접 접근</div><div class="loc-feat-desc">5분 이내 서초대로 진입, 서리풀터널 이용 강남 30분 접근</div></div>
+        </div>
+        <div class="loc-feat">
+          <div class="loc-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
+          <div><div class="loc-feat-title">이수역 4·7호선 더블역세권</div><div class="loc-feat-desc">이수역 이용 시 더블 역세권 활용 가능</div></div>
         </div>
       </div>
-      <div>
-        <span class="en-label">Life Infra</span>
-        <h3 class="sec-title" style="font-size:28px;">생활환경</h3>
-        <div class="sec-line"></div>
-        <div class="loc-feat-list">
-          <div class="loc-feat">
-            <div class="loc-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
-            <div><div class="loc-feat-title">우수한 교육환경</div><div class="loc-feat-desc">행림초 배정 예정 (도보 통학 가능)<br>중앙대·숭실대·총신대 등 명문대 인접</div></div>
-          </div>
-          <div class="loc-feat">
-            <div class="loc-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
-            <div><div class="loc-feat-title">풍부한 편의시설</div><div class="loc-feat-desc">대형마트·남성역 골목시장 인접<br>이수역~사당역 발달 상권 이용 가능</div></div>
-          </div>
-          <div class="loc-feat">
-            <div class="loc-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M5 12l7-9 7 9H5z"/><path d="M3 17l9-5 9 5"/></svg></div>
-            <div><div class="loc-feat-title">주거 쾌적성</div><div class="loc-feat-desc">한강시민공원 1.5km · 까치산공원 인접<br>국립현충원 산책로 도보 이용 가능</div></div>
-          </div>
+      <div class="loc-col">
+        <div class="loc-col-header">
+          <span class="en-label">Life Infra</span>
+          <h3 class="sec-title" style="font-size:26px; margin-bottom:0;">생활환경</h3>
+        </div>
+        <div class="loc-feat">
+          <div class="loc-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+          <div><div class="loc-feat-title">우수한 교육환경</div><div class="loc-feat-desc">행림초 배정 예정 (도보 통학 가능)<br>중앙대·숭실대·총신대 등 명문대 인접</div></div>
+        </div>
+        <div class="loc-feat">
+          <div class="loc-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+          <div><div class="loc-feat-title">풍부한 편의시설</div><div class="loc-feat-desc">대형마트·남성역 골목시장 인접<br>이수역~사당역 발달 상권 이용 가능</div></div>
+        </div>
+        <div class="loc-feat">
+          <div class="loc-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M5 12l7-9 7 9H5z"/><path d="M3 17l9-5 9 5"/></svg></div>
+          <div><div class="loc-feat-title">주거 쾌적성</div><div class="loc-feat-desc">한강시민공원 1.5km · 까치산공원 인접<br>국립현충원 산책로 도보 이용 가능</div></div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<section class="section map-section" id="map">
-  <div class="container">
-    <div class="rv">
-      <span class="en-label">Wide Area Map</span>
-      <h2 class="sec-title">광역 지역도</h2>
-      <div class="sec-line"></div>
-    </div>
-    <img src="./map.jpg" alt="광역 지역도" class="loc-full rv rv1" style="margin-top:36px;">
   </div>
 </section>
 
@@ -189,51 +178,50 @@ body { margin: 0; padding: 0; background: #fff; color: #1a1a18; }
       <p class="sec-desc">환승센터·GTX-D 등 대규모 교통 호재 보유, 향후 지역 광역 교통망 획기적 개선 전망</p>
     </div>
 
-    <img src="./dev.jpg" alt="개발호재" class="loc-full rv rv1" style="margin-top:40px; margin-bottom:56px;">
+    <img src="./dev.png" alt="개발호재" class="loc-full rv rv1" style="margin-top:40px; margin-bottom:56px; border-radius:16px;">
 
-    <div class="dev-two rv rv2">
-      <div class="dev-list">
-        <div class="dev-item">
-          <div class="dev-badge">사당역 일대</div>
-          <div class="dev-title">사당역 복합환승센터 건립</div>
-          <div class="dev-desc">교통 체계 개선 및 편의성 제고를 위한 대규모 복합시설. 사당역 교통 정체 해소 및 지역 노후도 개선.</div>
-          <div class="dev-detail">
-            <span class="dev-detail-key">규모</span><span class="dev-detail-val">연면적 약 26만㎡ (지하8~지상59층)</span>
-            <span class="dev-detail-key">완공</span><span class="dev-detail-val">'09~'34년 완공 목표</span>
-            <span class="dev-detail-key">현황</span><span class="dev-detail-val">'27년 지구단위계획 변경 예정</span>
-          </div>
-        </div>
-        <div class="dev-item">
-          <div class="dev-badge">광역 교통망</div>
-          <div class="dev-title">GTX-D 노선 확충</div>
-          <div class="dev-desc">수도권 서남부~서울 간 교통난 개선. 사당역 정차 예정으로 남성역 헤머튼 입주민의 직접적인 수혜 기대.</div>
-          <div class="dev-detail">
-            <span class="dev-detail-key">노선</span><span class="dev-detail-val">인천공항 ↔ 장기(김포) ↔ 부발</span>
-            <span class="dev-detail-key">효과</span><span class="dev-detail-val">사당↔삼성 10분 / 사당↔인천공항 40분</span>
-            <span class="dev-detail-key">현황</span><span class="dev-detail-val">예타 통과('25.07) · '35년 착공 예정</span>
-          </div>
+    <div class="dev-grid rv rv2">
+      <div class="dev-item">
+        <div class="dev-badge">사당역 일대</div>
+        <div class="dev-title">사당역 복합환승센터 건립</div>
+        <div class="dev-desc">교통 체계 개선 및 편의성 제고를 위한 대규모 복합시설. 사당역 교통 정체 해소 및 지역 노후도 개선.</div>
+        <div class="dev-detail">
+          <span class="dev-detail-key">규모</span><span class="dev-detail-val">연면적 약 26만㎡ (지하8~지상59층)</span>
+          <span class="dev-detail-key">완공</span><span class="dev-detail-val">'09~'34년 완공 목표</span>
+          <span class="dev-detail-key">현황</span><span class="dev-detail-val">'27년 지구단위계획 변경 예정</span>
         </div>
       </div>
+      <div class="dev-item">
+        <div class="dev-badge">광역 교통망</div>
+        <div class="dev-title">GTX-D 노선 확충</div>
+        <div class="dev-desc">수도권 서남부~서울 간 교통난 개선. 사당역 정차 예정으로 남성역 헤머튼 입주민의 직접적인 수혜 기대.</div>
+        <div class="dev-detail">
+          <span class="dev-detail-key">노선</span><span class="dev-detail-val">인천공항 ↔ 장기(김포) ↔ 부발</span>
+          <span class="dev-detail-key">효과</span><span class="dev-detail-val">사당↔삼성 10분 / 사당↔인천공항 40분</span>
+          <span class="dev-detail-key">현황</span><span class="dev-detail-val">예타 통과('25.07) · '35년 착공 예정</span>
+        </div>
+      </div>
+      <div class="dev-item">
+        <div class="dev-badge">동작구 핵심 개발</div>
+        <div class="dev-title">남성도시개발 가이드라인</div>
+        <div class="dev-desc">동작구 도시개발계획포털 게시 완료. 체계적 정비를 통한 동작구 최고의 개발호재로, 제2의 강남 주거지로 변모 예정.</div>
+        <div class="dev-detail">
+          <span class="dev-detail-key">면적</span><span class="dev-detail-val">1·2권역 합계 약 108만㎡</span>
+          <span class="dev-detail-key">규모</span><span class="dev-detail-val">16개 단지, 약 1만2,000세대 입주 예정</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="success-case rv rv3">
       <div>
-        <div class="dev-item">
-          <div class="dev-badge">동작구 핵심 개발</div>
-          <div class="dev-title">남성도시개발 가이드라인</div>
-          <div class="dev-desc">동작구 도시개발계획포털 게시 완료. 체계적 정비를 통한 동작구 최고의 개발호재로, 제2의 강남 주거지로 변모 예정.</div>
-          <div class="dev-detail">
-            <span class="dev-detail-key">면적</span><span class="dev-detail-val">1·2권역 합계 약 108만㎡</span>
-            <span class="dev-detail-key">규모</span><span class="dev-detail-val">16개 단지, 약 1만2,000세대 입주 예정</span>
-          </div>
-        </div>
-        <div class="success-case">
-          <div style="font-size:12px; font-weight:700; color:#cca754; letter-spacing:.15em; margin-bottom:8px; text-transform: uppercase;">Success Case</div>
-          <div style="font-size:20px; font-weight:800; margin-bottom:12px; letter-spacing: -0.02em;">동작구 지역주택조합 성공사례 다수</div>
-          <div style="font-size:15px; color:rgba(255,255,255,0.7); font-weight:400; line-height:1.75;">
-            동작구 권역 내 지역주택조합사업 분석 결과<br>
-            프로젝트 인근 구역 사업 진행도 매우 우수<br>
-            (6개 현장 중 5개 현장 착공 단계 진입 완료)<br>
-            신규 상품의 희소성과 성공 사례가 증명합니다.
-          </div>
-        </div>
+        <div style="font-size:12px; font-weight:700; color:#cca754; letter-spacing:.15em; margin-bottom:10px; text-transform:uppercase;">Success Case</div>
+        <div style="font-size:26px; font-weight:800; letter-spacing:-0.02em; line-height:1.3;">동작구 지역주택조합<br>성공사례 다수</div>
+      </div>
+      <div style="font-size:15px; color:rgba(255,255,255,0.65); font-weight:400; line-height:1.85; border-left:1px solid rgba(255,255,255,0.12); padding-left:48px;">
+        동작구 권역 내 지역주택조합사업 분석 결과<br>
+        프로젝트 인근 구역 사업 진행도 매우 우수<br>
+        6개 현장 중 5개 현장 착공 단계 진입 완료<br>
+        신규 상품의 희소성과 성공 사례가 증명합니다.
       </div>
     </div>
   </div>
