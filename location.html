@@ -125,8 +125,31 @@ body { margin: 0; padding: 0; background: #fff; color: #1a1a18; }
 @media(max-width:900px){
   .loc-two { grid-template-columns: 1fr; }
   .dev-grid { grid-template-columns: 1fr; }
-  .loc-col { padding: 32px 28px; }
-  .success-case { padding: 32px 28px; }
+  .loc-col { padding: 32px 24px; }
+  .success-case { padding: 36px 24px; }
+}
+@media(max-width:768px){
+  /* 공통 */
+  .section { padding: 64px 0; }
+  .container { padding: 0 20px; }
+  .page-hero { padding: 80px 0 48px; }
+  .page-hero-title { font-size: 28px; }
+  .sec-title { font-size: 24px; margin-bottom: 12px; }
+  .sec-desc { font-size: 15px; }
+  /* 지도 이미지 */
+  .loc-full { border-radius: 10px; }
+  /* 교통/생활 */
+  .loc-col { padding: 24px 20px; }
+  .loc-feat { grid-template-columns: 36px 1fr; gap: 12px; padding: 18px 0; }
+  .loc-feat-title { font-size: 15px; }
+  /* 개발호재 카드 */
+  .dev-item { padding: 24px 20px; }
+  .dev-title { font-size: 18px; }
+  /* 성공사례 */
+  .success-case { padding: 32px 20px; }
+  .sc-stats { grid-template-columns: repeat(2,1fr); }
+  .sc-val { font-size: 28px; }
+  .sc-title { font-size: 22px; }
 }
 
 /* ─── SCROLL REVEAL ─── */

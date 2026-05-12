@@ -103,7 +103,31 @@ body { margin: 0; padding: 0; background: #fff; color: #1a1a18; }
 .tl-badge.cur  { border-color: #cca754; color: #cca754; background: rgba(204,167,84,0.1); }
 .tl-badge.done { color: rgba(255,255,255,0.5); border-color: rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); }
 
-@media(max-width:768px){ .tl-item { grid-template-columns: 1fr; gap: 8px; padding-top: 24px; padding-bottom: 24px; } .tl-dot { top: 34px; } }
+@media(max-width:768px){
+  /* 공통 */
+  .section { padding: 64px 0; }
+  .container { padding: 0 20px; }
+  .page-hero { padding: 80px 0 48px; }
+  .page-hero-title { font-size: 28px; }
+  .sec-title { font-size: 24px; margin-bottom: 12px; }
+  .sec-desc { font-size: 15px; }
+  /* 조감도 */
+  .ov-render img { aspect-ratio: 3/2; }
+  .ov-render-overlay { padding: 0 24px; }
+  /* 사업개요 그리드 */
+  .info-grid { grid-template-columns: repeat(2,1fr); }
+  .cell { padding: 24px 16px; }
+  .cell-val { font-size: 15px; }
+  /* 타임라인 */
+  .tl { padding-left: 20px; }
+  .tl-item { grid-template-columns: 1fr; gap: 8px; padding: 20px 0 20px 28px; }
+  .tl-dot { top: 28px; }
+  .tl-date { font-size: 14px; }
+  .tl-name { font-size: 17px; }
+  /* 사업주체 */
+  .entity-grid { grid-template-columns: 1fr; }
+  .entity-card { padding: 32px 24px; }
+}
 
 /* ─────────────── 3. ORGANIZATION (사업주체) ─────────────── */
 .entity-section { background: #F4F2EE; }

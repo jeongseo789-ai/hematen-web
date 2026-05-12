@@ -125,12 +125,36 @@ body { margin: 0; padding: 0; background: #fff; color: #1a1a18; }
 .rv4 { transition-delay: .4s; }
 
 @media(max-width:900px){
-  .fp-panel.on { grid-template-columns: 1fr; gap: 40px; }
-  .furn-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-  .fp-box { padding: 24px; }
+  .fp-panel.on { grid-template-columns: 1fr; gap: 32px; }
+  .furn-grid { grid-template-columns: repeat(2,1fr); gap: 16px; }
+  .fp-box { padding: 20px; min-height: 280px; }
 }
-@media(max-width:600px){
-  .sec-title { font-size: 28px; }
+@media(max-width:768px){
+  /* 공통 */
+  .section { padding: 64px 0; }
+  .container { padding: 0 20px; }
+  .page-hero { padding: 80px 0 48px; }
+  .page-hero-title { font-size: 28px; }
+  .sec-title { font-size: 24px; margin-bottom: 12px; }
+  .sec-desc { font-size: 15px; }
+  /* 평면도 탭 */
+  .fp-tabs { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 6px; gap: 8px; }
+  .fp-tab { white-space: nowrap; flex-shrink: 0; padding: 10px 20px; font-size: 14px; }
+  .fp-title { font-size: 26px; }
+  .fp-cnt { font-size: 14px; margin-bottom: 24px; }
+  .fp-row { padding: 14px 0; }
+  .fp-key, .fp-val { font-size: 14px; }
+  .fp-note { font-size: 14px; padding: 16px 18px; }
+  /* 모집가 탭 */
+  .price-tabs { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 28px; }
+  .price-tab { white-space: nowrap; flex-shrink: 0; padding: 12px 20px; font-size: 14px; }
+  .data-table th, .data-table td { padding: 10px 8px; font-size: 13px; }
+  .price-note { font-size: 12px; }
+  /* 풀퍼니처 */
+  .furn-grid { grid-template-columns: repeat(2,1fr); gap: 12px; }
+  .furn-item { padding: 28px 16px; }
+  .furn-name { font-size: 14px; }
+  .furn-brand { font-size: 13px; }
 }
 </style>
 </head>

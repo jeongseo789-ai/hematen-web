@@ -115,12 +115,27 @@ body { margin: 0; padding: 0; }
 }
 
 @media (max-width: 768px) {
+  /* 프리미엄 바 */
   .premium-bar { flex-direction: column; padding: 0; gap: 0; }
   .pb-item { width: 100%; padding: 16px 24px; justify-content: flex-start; }
   .pb-item + .pb-item::before { top: 0; bottom: auto; left: 24px; right: 24px; width: auto; height: 1px; }
   .pb-num { font-size: 12px; }
   .pb-text { font-size: 13px; }
   .scroll-hint { display: none; }
+  /* 넘버 밴드 */
+  .num-grid { grid-template-columns: repeat(2,1fr); padding: 0 20px; }
+  /* 메뉴 그리드 */
+  .menu-section { padding: 64px 0; }
+  .menu-grid { grid-template-columns: repeat(2,1fr); width: calc(100% - 40px); }
+  /* 하이라이트 */
+  .hl-section { padding: 64px 0; }
+  .hl-header { padding: 0 20px; }
+  .hl-grid { grid-template-columns: 1fr; width: calc(100% - 40px); }
+  .hl-card { padding: 36px 24px; }
+  /* QC 섹션 */
+  .qc-inner { padding: 0 20px; flex-direction: column; align-items: flex-start; gap: 20px; }
+  .qc-right { width: 100%; flex-direction: column; gap: 12px; }
+  .qc-right a { width: 100%; text-align: center; display: block; padding: 16px; }
 }
 @media (max-width: 480px) {
   .hero { padding-bottom: 7vh; }
