@@ -63,15 +63,17 @@ body { margin: 0; padding: 0; }
   margin-bottom: -18px; user-select: none;
 }
 .hero-title {
-  font-size: clamp(38px,5.5vw,70px); color: #fff; font-weight: 800;
+  font-size: clamp(32px,5.5vw,70px); color: #fff; font-weight: 800;
   line-height: 1.22; letter-spacing: -.04em; margin-bottom: 20px;
   text-shadow: 0 4px 20px rgba(0,0,0,.45);
+  word-break: keep-all;
 }
 .hero-title em { color: var(--gold-lt); font-style: normal; display: block; }
 .hero-desc {
   font-size: 17px; color: rgba(255,255,255,.8); font-weight: 400;
   line-height: 1.85; margin-bottom: 36px;
   text-shadow: 0 2px 12px rgba(0,0,0,.4);
+  word-break: keep-all;
 }
 
 /* 프리미엄 바 */
@@ -115,30 +117,57 @@ body { margin: 0; padding: 0; }
 }
 
 @media (max-width: 768px) {
-  /* 프리미엄 바 */
-  .premium-bar { flex-direction: column; padding: 0; gap: 0; }
-  .pb-item { width: 100%; padding: 16px 24px; justify-content: flex-start; }
-  .pb-item + .pb-item::before { top: 0; bottom: auto; left: 24px; right: 24px; width: auto; height: 1px; }
-  .pb-num { font-size: 12px; }
+  /* ── 히어로 전체 ── */
+  .hero { padding-bottom: 6vh; }
+  .hero-body { padding: 0 20px; gap: 0; }
+  .hero-tag { margin-bottom: 16px; font-size: 11px; padding: 7px 14px; }
+  .hero-sub-en { display: none; } /* 모바일에서 ghost text 숨김 */
+  .hero-title { font-size: 30px; margin-bottom: 12px; line-height: 1.28; }
+  .hero-desc { font-size: 14px; margin-bottom: 20px; line-height: 1.75; }
+  /* 프리미엄 바 → 2×2 그리드 */
+  .premium-bar {
+    display: grid; grid-template-columns: 1fr 1fr;
+    padding: 0; gap: 0; margin-bottom: 20px; width: 100%;
+  }
+  .pb-item { padding: 14px 16px; justify-content: flex-start; }
+  .pb-item + .pb-item::before {
+    top: 15%; bottom: 15%; left: 0; right: auto;
+    width: 1px; height: auto;
+  }
+  /* 2행 1열(홀수)에는 위쪽 구분선 */
+  .pb-item:nth-child(3),
+  .pb-item:nth-child(4) {
+    border-top: 1px solid rgba(255,255,255,.1);
+  }
+  .pb-num { font-size: 11px; }
   .pb-text { font-size: 13px; }
+  /* 버튼 */
+  .hero-btns { gap: 10px; width: 100%; }
+  .hero-btns a.btn-gold,
+  .hero-btns a.btn-outline-light {
+    flex: 1; padding: 16px 20px; font-size: 14px; text-align: center;
+  }
   .scroll-hint { display: none; }
-  /* 넘버 밴드 */
+  /* ── 넘버 밴드 ── */
+  .num-band { padding: 48px 0; }
   .num-grid { grid-template-columns: repeat(2,1fr); padding: 0 20px; }
-  /* 메뉴 그리드 */
-  .menu-section { padding: 64px 0; }
+  .num-v { font-size: 32px; }
+  /* ── 메뉴 그리드 ── */
+  .menu-section { padding: 56px 0; }
   .menu-grid { grid-template-columns: repeat(2,1fr); width: calc(100% - 40px); }
-  /* 하이라이트 */
-  .hl-section { padding: 64px 0; }
+  /* ── 하이라이트 ── */
+  .hl-section { padding: 56px 0; }
   .hl-header { padding: 0 20px; }
   .hl-grid { grid-template-columns: 1fr; width: calc(100% - 40px); }
-  .hl-card { padding: 36px 24px; }
-  /* QC 섹션 */
+  .hl-card { padding: 32px 24px; }
+  .hl-title { font-size: 18px; }
+  .hl-text { font-size: 14px; }
+  /* ── QC 섹션 ── */
+  .qc-section { padding: 48px 0; }
   .qc-inner { padding: 0 20px; flex-direction: column; align-items: flex-start; gap: 20px; }
-  .qc-right { width: 100%; flex-direction: column; gap: 12px; }
+  .qc-phone { font-size: 28px; }
+  .qc-right { width: 100%; flex-direction: column; gap: 10px; }
   .qc-right a { width: 100%; text-align: center; display: block; padding: 16px; }
-}
-@media (max-width: 480px) {
-  .hero { padding-bottom: 7vh; }
 }
 
 /* ── 2. NUM-BAND ── */

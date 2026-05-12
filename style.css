@@ -204,10 +204,12 @@ button { cursor: pointer; font-family: inherit; }
 .sec-title {
   font-size: clamp(28px,3.6vw,44px); font-weight: 800;
   color: var(--text); line-height: 1.2; letter-spacing: -.04em; margin-bottom: 18px;
+  word-break: keep-all;
 }
 .sec-line { width: 32px; height: 2px; background: var(--gold); margin-bottom: 22px; }
 .sec-desc {
   font-size: 16px; color: var(--text-sub); font-weight: 400; line-height: 1.9; letter-spacing: -.01em;
+  word-break: keep-all;
 }
 
 /* ── INFO GRID ── */
