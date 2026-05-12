@@ -49,6 +49,7 @@
     if (toggle) {
       toggle.addEventListener('click', function () {
         var open = menu.classList.toggle('open');
+        toggle.classList.toggle('open', open);
         toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
       });
     }
@@ -57,6 +58,7 @@
     menu.querySelectorAll('.nav-link').forEach(function (link) {
       link.addEventListener('click', function () {
         menu.classList.remove('open');
+        toggle.classList.remove('open');
       });
     });
   }
@@ -81,7 +83,7 @@
   function injectFooter() {
     document.write(
       '<footer class="footer">' +
-        '<div class="container">' +
+        '<div class="footer-inner">' +
           '<div class="footer-top">' +
             '<div>' +
               '<div class="footer-logo-ko">남성역 헤머튼</div>' +
@@ -92,7 +94,7 @@
                 return '<a href="' + it.href + '">' + it.label + '</a>';
               }).join('') +
             '</div>' +
-            '<div>' +
+            '<div class="footer-contact">' +
               '<div class="footer-tel-label">대표전화</div>' +
               '<a href="tel:0255885840" class="footer-tel">02-588-5840</a>' +
             '</div>' +

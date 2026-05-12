@@ -81,17 +81,52 @@ body { margin: 0; padding: 0; background: #fff; color: #1a1a18; }
 .dev-detail-val { color: #1a1a18; font-weight: 500; }
 
 .success-case {
-  background: #1c1917; border-radius: 16px; padding: 40px 48px; margin-top: 24px;
+  background: #1c1917; border-radius: 16px; padding: 52px 48px; margin-top: 24px;
   color: #fff; box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-  display: grid; grid-template-columns: auto 1fr; gap: 48px; align-items: center;
+  text-align: center;
+}
+.sc-head { margin-bottom: 40px; }
+.sc-label {
+  display: inline-block; font-size: 11px; font-weight: 700; color: #cca754;
+  letter-spacing: .22em; text-transform: uppercase; margin-bottom: 14px;
+}
+.sc-title {
+  font-size: clamp(22px, 3vw, 30px); font-weight: 800;
+  letter-spacing: -0.03em; line-height: 1.25; margin-bottom: 0;
+}
+.sc-divider {
+  width: 36px; height: 2px; background: #cca754;
+  margin: 20px auto 0;
+}
+.sc-stats {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1px; background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.07); border-radius: 10px; overflow: hidden;
+}
+.sc-stat {
+  padding: 28px 16px; background: rgba(255,255,255,.03);
+  transition: background .2s;
+}
+.sc-stat:hover { background: rgba(196,160,82,.08); }
+.sc-val {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 38px; font-weight: 800; color: #cca754;
+  line-height: 1; letter-spacing: -.02em; margin-bottom: 10px;
+}
+.sc-val sup { font-size: 18px; vertical-align: super; }
+.sc-desc { font-size: 13px; color: rgba(255,255,255,.5); font-weight: 400; line-height: 1.6; }
+
+@media (max-width: 768px) {
+  .success-case { padding: 36px 24px; }
+  .sc-stats { grid-template-columns: repeat(2, 1fr); }
+  .sc-val { font-size: 30px; }
 }
 
 @media(max-width:900px){
   .loc-two { grid-template-columns: 1fr; }
   .dev-grid { grid-template-columns: 1fr; }
   .loc-col { padding: 32px 28px; }
-  .success-case { grid-template-columns: 1fr; gap: 24px; padding: 32px 28px; }
-  .success-case > div:last-child { border-left: none; border-top: 1px solid rgba(255,255,255,0.12); padding-left: 0; padding-top: 24px; }
+  .success-case { padding: 32px 28px; }
 }
 
 /* ─── SCROLL REVEAL ─── */
@@ -213,15 +248,28 @@ body { margin: 0; padding: 0; background: #fff; color: #1a1a18; }
     </div>
 
     <div class="success-case rv rv3">
-      <div>
-        <div style="font-size:12px; font-weight:700; color:#cca754; letter-spacing:.15em; margin-bottom:10px; text-transform:uppercase;">Success Case</div>
-        <div style="font-size:26px; font-weight:800; letter-spacing:-0.02em; line-height:1.3;">동작구 지역주택조합<br>성공사례 다수</div>
+      <div class="sc-head">
+        <div class="sc-label">Success Case</div>
+        <div class="sc-title">동작구 지역주택조합<br>성공사례 다수</div>
+        <div class="sc-divider"></div>
       </div>
-      <div style="font-size:15px; color:rgba(255,255,255,0.65); font-weight:400; line-height:1.85; border-left:1px solid rgba(255,255,255,0.12); padding-left:48px;">
-        동작구 권역 내 지역주택조합사업 분석 결과<br>
-        프로젝트 인근 구역 사업 진행도 매우 우수<br>
-        6개 현장 중 5개 현장 착공 단계 진입 완료<br>
-        신규 상품의 희소성과 성공 사례가 증명합니다.
+      <div class="sc-stats">
+        <div class="sc-stat">
+          <div class="sc-val">6<sup>개</sup></div>
+          <div class="sc-desc">동작구 권역<br>진행 현장</div>
+        </div>
+        <div class="sc-stat">
+          <div class="sc-val">5<sup>개</sup></div>
+          <div class="sc-desc">착공 단계<br>진입 완료</div>
+        </div>
+        <div class="sc-stat">
+          <div class="sc-val">4<sup>차</sup></div>
+          <div class="sc-desc">하이팰리스<br>시리즈</div>
+        </div>
+        <div class="sc-stat">
+          <div class="sc-val">83<sup>%</sup></div>
+          <div class="sc-desc">착공 진입<br>성공률</div>
+        </div>
       </div>
     </div>
   </div>
