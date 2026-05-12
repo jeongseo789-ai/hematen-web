@@ -352,6 +352,55 @@ body { margin: 0; padding: 0; background: #fff; color: #1a1a18; }
   </div>
 </section>
 
+<!-- VR TOUR -->
+<section class="vr-section">
+  <div class="container">
+    <div class="rv" style="text-align:center;">
+      <span class="en-label" style="color:var(--gold-lt);">Virtual Reality Tour</span>
+      <h2 class="sec-title" style="color:#fff;">VR 투어</h2>
+      <div class="sec-line" style="margin:20px auto 0;"></div>
+      <p class="sec-desc" style="color:rgba(255,255,255,.5); margin-top:16px;">직접 방문하지 않아도<br>VR로 먼저 생생하게 경험해 보세요</p>
+    </div>
+    <div class="vr-cards">
+      <div class="vr-card rv rv1" onclick="openVR('https://panorama360.kr/360vr/hem/index.htm')">
+        <div class="vr-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><ellipse cx="12" cy="12" rx="4" ry="10"/><path d="M2 12h20"/></svg>
+        </div>
+        <div class="vr-card-badge">360° PANORAMA</div>
+        <div class="vr-card-title">파노라마 뷰</div>
+        <div class="vr-card-sub">단지 전체를 360도로<br>실감나게 체험하세요</div>
+        <button class="btn btn-gold">VR 체험하기</button>
+      </div>
+      <div class="vr-card rv rv2" onclick="openVR('https://153media.kr/nshammerton/N59B.html')">
+        <div class="vr-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div class="vr-card-badge">UNIT VR · 59B</div>
+        <div class="vr-card-title">59B 타입</div>
+        <div class="vr-card-sub">59㎡ 유닛 내부를<br>직접 걷는 듯이 체험</div>
+        <button class="btn btn-gold">VR 체험하기</button>
+      </div>
+      <div class="vr-card rv rv3" onclick="openVR('https://153media.kr/nshammerton/N84A.html')">
+        <div class="vr-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div class="vr-card-badge">UNIT VR · 84A</div>
+        <div class="vr-card-title">84A 타입</div>
+        <div class="vr-card-sub">84㎡ 유닛 내부를<br>직접 걷는 듯이 체험</div>
+        <button class="btn btn-gold">VR 체험하기</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VR MODAL -->
+<div class="vr-overlay" id="vrOverlay" onclick="handleVrOverlayClick(event)">
+  <div class="vr-modal">
+    <button class="vr-close" onclick="closeVR()">✕</button>
+    <iframe id="vrFrame" src="" allowfullscreen allow="xr-spatial-tracking; gyroscope; accelerometer"></iframe>
+  </div>
+</div>
+
 <section class="section" style="background:#1c1917;">
   <div class="container">
     <div class="rv">
@@ -383,6 +432,21 @@ function showP(t, el) {
 }
 
 if (typeof injectFooter === 'function') injectFooter();
+
+function openVR(url) {
+  document.getElementById('vrFrame').src = url;
+  document.getElementById('vrOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeVR() {
+  document.getElementById('vrOverlay').classList.remove('open');
+  document.getElementById('vrFrame').src = '';
+  document.body.style.overflow = '';
+}
+function handleVrOverlayClick(e) {
+  if (e.target === document.getElementById('vrOverlay')) closeVR();
+}
+document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeVR(); });
 
 // 스크롤 애니메이션 옵저버 (메인 페이지와 동일)
 document.addEventListener("DOMContentLoaded", function() {
