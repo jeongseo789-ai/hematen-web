@@ -229,7 +229,7 @@ input[type="date"] { appearance: auto; -webkit-appearance: auto; }
       <span class="en-label">Contact</span>
       <h2 class="sec-title">상담 문의</h2>
       <div class="sec-line"></div>
-      <p class="sec-desc">남성역 헤머튼 조합원 모집에 관한 궁금한 사항은<br>전문 상담사가 친절하게 안내해 드립니다</p>
+      <p class="sec-desc">남성역 헤머튼 분양 및 입주에 관한 궁금한 사항은<br>전문 상담사가 친절하게 안내해 드립니다</p>
     </div>
 
     <div class="contact-two">
@@ -280,8 +280,8 @@ input[type="date"] { appearance: auto; -webkit-appearance: auto; }
         </div>
 
         <div class="c-qualify">
-          <div class="c-qualify-label">조합원 자격 요건</div>
-          <div class="c-qualify-title">조합설립인가 신청일 기준</div>
+          <div class="c-qualify-label">입주 자격 요건</div>
+          <div class="c-qualify-title">사업 신청일 기준</div>
           <div class="c-qualify-desc">
             만 19세 이상, 서울·경기·인천 6개월 이상 계속 거주자<br>
             현(現) 무주택 또는 85㎡ 이하 1주택 소유자 세대주
@@ -306,40 +306,6 @@ input[type="date"] { appearance: auto; -webkit-appearance: auto; }
             <label>연락처<span class="req">*</span></label>
             <input type="tel" id="f-phone" placeholder="010-0000-0000" autocomplete="tel">
           </div>
-        </div>
-        <div class="fg">
-          <label>관심 타입</label>
-          <select id="f-type">
-            <option value="">관심 타입을 선택해 주세요</option>
-            <option>59A 타입 (전용 59.98㎡)</option>
-            <option>59B 타입 (전용 59.93㎡)</option>
-            <option>84A 타입 (전용 84.92㎡)</option>
-            <option>84B 타입 (전용 84.95㎡)</option>
-            <option>미정</option>
-          </select>
-        </div>
-        <div class="fg">
-          <label>거주지역</label>
-          <select id="f-region">
-            <option value="">지역을 선택해 주세요</option>
-            <option>서울특별시</option>
-            <option>부산광역시</option>
-            <option>대구광역시</option>
-            <option>인천광역시</option>
-            <option>광주광역시</option>
-            <option>대전광역시</option>
-            <option>울산광역시</option>
-            <option>세종특별자치시</option>
-            <option>경기도</option>
-            <option>강원특별자치도</option>
-            <option>충청북도</option>
-            <option>충청남도</option>
-            <option>전북특별자치도</option>
-            <option>전라남도</option>
-            <option>경상북도</option>
-            <option>경상남도</option>
-            <option>제주특별자치도</option>
-          </select>
         </div>
         <div class="fg-row">
           <div class="fg">
@@ -375,11 +341,6 @@ input[type="date"] { appearance: auto; -webkit-appearance: auto; }
             </select>
           </div>
         </div>
-        <div class="fg">
-          <label>상담 내용 <span style="color:#8c8a85; font-weight:400;">(선택)</span></label>
-          <textarea id="f-msg" placeholder="궁금한 사항을 남겨주세요"></textarea>
-        </div>
-
         <label class="fg-check">
           <input type="checkbox" id="f-agree">
           <span>개인정보 수집·이용에 동의합니다. 수집된 개인정보(성명, 연락처)는 상담 목적으로만 활용되며 상담 완료 후 즉시 파기됩니다.</span>
@@ -443,11 +404,8 @@ const DISCORD_WEBHOOK = 'https://discord.com/api/webhooks/1503382660360437922/rI
 async function submitForm() {
   const name    = document.getElementById('f-name').value.trim();
   const phone   = document.getElementById('f-phone').value.trim();
-  const type    = document.getElementById('f-type').value;
-  const region  = document.getElementById('f-region').value;
   const date    = document.getElementById('f-date').value;
   const time    = document.getElementById('f-time').value;
-  const msg     = document.getElementById('f-msg').value.trim();
 
   const visitDate = date
     ? new Date(date).toLocaleDateString('ko-KR', { year:'numeric', month:'long', day:'numeric', weekday:'short' })
@@ -478,11 +436,8 @@ async function submitForm() {
       fields: [
         { name: '👤 성함',          value: name,                             inline: true  },
         { name: '📞 연락처',        value: phone,                            inline: true  },
-        { name: '🏠 관심 타입',     value: type       || '미선택',           inline: true  },
-        { name: '📍 거주지역',      value: region     || '미선택',           inline: true  },
         { name: '📅 방문 희망일',   value: visitDate  || '미선택',           inline: true  },
         { name: '🕐 방문 희망 시간',value: time       || '미선택',           inline: true  },
-        { name: '💬 상담 내용',     value: msg        || '(없음)',           inline: false },
       ],
       footer: { text: `남성역 헤머튼 홈페이지 · ${now}` },
     }]
@@ -499,11 +454,8 @@ async function submitForm() {
       showMsg('success', '✅ 상담 신청이 완료되었습니다!\n담당자가 빠른 시일 내에 연락드리겠습니다. (☎ 02-588-5840)');
       document.getElementById('f-name').value   = '';
       document.getElementById('f-phone').value  = '';
-      document.getElementById('f-type').value   = '';
-      document.getElementById('f-region').value = '';
       document.getElementById('f-date').value   = '';
       document.getElementById('f-time').value   = '';
-      document.getElementById('f-msg').value    = '';
       document.getElementById('f-agree').checked = false;
     } else {
       showMsg('error', '전송 중 오류가 발생했습니다. 전화(02-588-5840)로 문의해 주세요.');
