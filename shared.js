@@ -23,7 +23,7 @@
             '<span class="nav-logo-en">HEMATEN</span>' +
           '</a>' +
           '<ul class="nav-menu" id="navMenu">' + items + '</ul>' +
-          '<a href="tel:0255885840" class="nav-tel">02-588-5840</a>' +
+          '<a href="tel:15552021" class="nav-tel">1555-2021</a>' +
           '<button class="nav-toggle" id="navToggle" aria-label="메뉴">' +
             '<span></span><span></span><span></span>' +
           '</button>' +
@@ -96,13 +96,13 @@
             '</div>' +
             '<div class="footer-contact">' +
               '<div class="footer-tel-label">대표전화</div>' +
-              '<a href="tel:0255885840" class="footer-tel">02-588-5840</a>' +
+              '<a href="tel:15552021" class="footer-tel">1555-2021</a>' +
             '</div>' +
           '</div>' +
           '<div class="footer-legal">' +
             '본 광고는 「주택법」 제11조의5에 의거한 지역주택조합의 조합원 모집을 위한 광고입니다.<br>' +
             '사업주체: 동작남성역 지역주택조합 추진위원회 &nbsp;·&nbsp; 업무대행: ㈜동명디앤씨 &nbsp;·&nbsp; 자금대리: 우리자산신탁<br>' +
-            '홍보관: 서울특별시 동작구 사당로16길 27, 2층 &nbsp;·&nbsp; ☎ 02-588-5840<br><br>' +
+            '홍보관: 서울특별시 동작구 사당로16길 27, 2층 &nbsp;·&nbsp; ☎ 1555-2021<br><br>' +
             '※ 본 내용은 인허가 진행 상황에 따라 변경될 수 있습니다. 정확한 사항은 방문 또는 전화 상담을 통해 확인하시기 바랍니다.<br>' +
             '© 2025 동작남성역 지역주택조합 추진위원회. All rights reserved.' +
           '</div>' +
