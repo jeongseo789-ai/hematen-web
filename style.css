@@ -421,7 +421,7 @@ button { cursor: pointer; font-family: inherit; }
 
 /* ━━━ VR TOUR SECTION ━━━ */
 .vr-section { padding: 112px 0; background: #0f0e0c; }
-.vr-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+.vr-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 56px; max-width: 720px; margin-left: auto; margin-right: auto; }
 .vr-card {
   background: #1a1814;
   border: 1px solid rgba(158,125,46,.18);
